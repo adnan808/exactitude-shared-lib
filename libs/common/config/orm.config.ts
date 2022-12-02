@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import type {} from 'typeorm/driver/mysql/MysqlConnectionCredentialsOptions';
 
 export const typeOrmModuleOptions: TypeOrmModuleOptions = {
   type: 'mysql',

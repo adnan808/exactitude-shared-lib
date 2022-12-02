@@ -1,0 +1,36 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.results.outputs.version }}
+      commit: ${{ steps.results.outputs.commit }}
+    steps:
+      - name: '📚 Checkout'
+        uses: actions/checkout@v2
+      - name: get current commit hash
+        run: echo "commit_hash=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      - name: '🧩 Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@vegainvestments'
+      - name: '🚀 Install packages'
+        run: npm install
+      - name: '🚀 Build'
+        run: npm run-script build
+      - name: '🚀 Publish'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - id: results
+        run: |
+          echo "::set-output name=version::$(jq -r .version ./package.json)"
+          echo "::set-output name=commit::https://github.com/vegainvestments/${{ github.event.repository.name }}/commit/${{ env.commit_hash }}"
