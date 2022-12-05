@@ -17,8 +17,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "compilerOptions": {
-      "preserveSymlinks": true
-    }
+    "preserveSymlinks": true,
   }
 }

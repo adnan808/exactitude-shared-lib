@@ -1,24 +1,24 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import type {} from 'typeorm/driver/mysql/MysqlConnectionCredentialsOptions';
+import { DataSourceOptions } from 'typeorm';
 
-export const typeOrmModuleOptions: TypeOrmModuleOptions = {
+export const typeOrmModuleOptions: DataSourceOptions = {
   type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: 'password',
-  database: 'library',
+  host: process.env.DB_HOST,
+  port: Number.parseInt(process.env.DB_PORT) || 3306,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
   entities: [],
   synchronize: false,
   logging: 'all',
 };
 
-export const OrmConfig = {
+const OrmConfig = {
   ...typeOrmModuleOptions,
   migrationsTableName: 'migrations',
-  migrations: ['src/migrations/*.ts'],
+  migrations: ['models/migrations/*.ts'],
   cli: {
-    migrationsDir: 'src/migrations',
+    migrationsDir: 'models/migrations',
   },
 };
 export default OrmConfig;

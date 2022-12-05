@@ -1,6 +1,6 @@
 {
   "name": "@vegainvestments/shared-lib",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
   "repository": "https://github.com/vegainvestments/shared-lib.git",
@@ -18,16 +18,19 @@
     "build": "nest build",
     "build:watch": "nest build --watch",
     "update:libs": "./scripts/update_libs.sh",
-    "test": "jest"
+    "test": "jest",
+    "typeorm": "cd libs/ && ts-node ../node_modules/typeorm/cli.js -d common/database/database.datasource.ts"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^9.0.1",
+    "cache-manager-redis-store": "^3.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "mysql": "^2.18.1",
+    "redis": "^3.1.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
