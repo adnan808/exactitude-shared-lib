@@ -23,7 +23,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@vegainvestments'
       - name: '🚀 Install pnpm'
-        run: pnpm add -g pnpm
+        run: npm add -g pnpm
       - name: '🚀 Install packages'
         run: pnpm install
       - name: '🚀 Build'
