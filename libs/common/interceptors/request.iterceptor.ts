@@ -1,5 +1,4 @@
 import { ExecutionContext, NestInterceptor, CallHandler } from '@nestjs/common';
-import type {} from 'rxjs';
 
 export class RequestInterceptor implements NestInterceptor {
   async intercept(context: ExecutionContext, next: CallHandler) {
