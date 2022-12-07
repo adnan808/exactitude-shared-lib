@@ -1,4 +1,3 @@
-import type {} from 'typeorm/driver/mysql/MysqlConnectionCredentialsOptions';
 import { DataSourceOptions } from 'typeorm';
 
 export const typeOrmModuleOptions: DataSourceOptions = {
