@@ -1,9 +1,8 @@
-import { Column, Entity, ManyToMany, OneToOne } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, OneToOne } from 'typeorm';
 import InvestorModel from './investor.model';
 import ProfileModel from './profile.model';
 import BaseModel from './base.abstract.model';
 import RoleModel from './role.model';
-import { JoinTable } from 'typeorm/browser';
 
 @Entity({ name: 'users' })
 export default class UserModel extends BaseModel {

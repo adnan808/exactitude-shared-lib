@@ -1,14 +1,6 @@
-import {
-  BaseEntity,
-  Column,
-  CreateDateColumn,
-  Entity,
-  Index,
-  ManyToOne,
-  OneToOne,
-} from 'typeorm';
-import { JoinColumn } from 'typeorm/browser';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 import UserModel from './user.model';
+import BaseModel from './base.abstract.model';
 
 export enum Type {
   INDIVIDUAL = 'individual',
@@ -16,7 +8,7 @@ export enum Type {
 }
 
 @Entity({ name: 'investors' })
-export default class InvestorModel extends BaseEntity {
+export default class InvestorModel extends BaseModel {
   @Column()
   type: Type;
 

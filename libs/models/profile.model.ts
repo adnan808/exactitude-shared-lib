@@ -1,20 +1,9 @@
-import {
-  BaseEntity,
-  Column,
-  CreateDateColumn,
-  Entity,
-  Index,
-  ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  Unique,
-  UpdateDateColumn,
-} from 'typeorm';
-import { JoinColumn } from 'typeorm/browser';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 import UserModel from './user.model';
+import BaseModel from './base.abstract.model';
 
 @Entity({ name: 'profiles' })
-export default class ProfileModel extends BaseEntity {
+export default class ProfileModel extends BaseModel {
   @Column()
   city: string;
 
