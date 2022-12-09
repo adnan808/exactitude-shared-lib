@@ -25,7 +25,7 @@ export default class ProfileModel extends BaseModel {
   @Column({ name: 'tax_id' })
   taxId: string;
 
-  @Column({ name: 'tax_id' })
+  @Column({ name: 'kyc' })
   kyc: number;
 
   @OneToOne(() => UserModel, (u: UserModel) => u.profile, {
