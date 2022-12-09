@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import SupportModel from './support.abstract.model';
 
 @Entity({ name: 'roles' })
