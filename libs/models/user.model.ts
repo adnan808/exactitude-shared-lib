@@ -9,6 +9,11 @@ export default class UserModel extends BaseModel {
   @Column({
     unique: true,
   })
+  sub: string;
+
+  @Column({
+    unique: true,
+  })
   email: string;
 
   @Column()
