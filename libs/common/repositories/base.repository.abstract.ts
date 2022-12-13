@@ -1,8 +1,8 @@
 import { Repository } from 'typeorm';
 
-class BaseRepository<T> {
+abstract class BaseRepository<T> {
   public db: Repository<T>;
-  constructor(usersRepository: Repository<T>) {
+  protected constructor(usersRepository: Repository<T>) {
     this.db = usersRepository;
   }
 }
