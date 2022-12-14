@@ -1,9 +1,9 @@
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
-import UserModel from './user.model';
+import { UserModel } from './user.model';
 import BaseModel from './base.abstract.model';
 
 @Entity({ name: 'profiles' })
-export default class ProfileModel extends BaseModel {
+export class ProfileModel extends BaseModel {
   @Column()
   city: string;
 

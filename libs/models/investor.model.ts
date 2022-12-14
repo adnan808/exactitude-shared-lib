@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
-import UserModel from './user.model';
+import { UserModel } from './user.model';
 import BaseModel from './base.abstract.model';
 
 export enum Type {
@@ -8,7 +8,7 @@ export enum Type {
 }
 
 @Entity({ name: 'investors' })
-export default class InvestorModel extends BaseModel {
+export class InvestorModel extends BaseModel {
   @Column()
   type: Type;
 
