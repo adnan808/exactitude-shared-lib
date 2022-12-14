@@ -17,9 +17,9 @@ jobs:
       - name: get current commit hash
         run: echo "commit_hash=$(git rev-parse HEAD)" >> $GITHUB_ENV
       - name: '🧩 Node.js'
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@vegainvestments'
       - name: '🚀 Install pnpm'
