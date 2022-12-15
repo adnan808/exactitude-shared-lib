@@ -8,4 +8,5 @@ export * from './common/exceptions';
 export * from './common/interceptors';
 export * from './common/database';
 export * from './common/repositories/base.repository.abstract';
+export * from './common/auth';
 export * from './models';
