@@ -1,12 +1,13 @@
 import { DataSourceOptions } from 'typeorm';
-import UserModel from '../../models/user.model';
-import RoleModel from '../../models/role.model';
-import ProfileModel from '../../models/profile.model';
-import InvestorModel from '../../models/investor.model';
+import {
+  UserModel,
+  RoleModel,
+  ProfileModel,
+  InvestorModel,
+} from '../../models';
 import { ConfigModule } from '@nestjs/config';
 
 ConfigModule.forRoot();
-
 export const typeOrmModuleOptions: DataSourceOptions = {
   type: 'mysql',
   host: process.env.DB_HOST,
@@ -22,6 +23,6 @@ export const typeOrmModuleOptions: DataSourceOptions = {
 const OrmConfig = {
   ...typeOrmModuleOptions,
   migrationsTableName: 'migrations',
-  migrations: ['dist/models/migrations/*.js'],
+  migrations: [__dirname + '/../../models/migrations/*.js'],
 };
 export default OrmConfig;

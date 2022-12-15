@@ -1,11 +1,11 @@
 import { Column, Entity, JoinTable, ManyToMany, OneToOne } from 'typeorm';
-import InvestorModel from './investor.model';
-import ProfileModel from './profile.model';
+import { InvestorModel } from './investor.model';
+import { ProfileModel } from './profile.model';
 import BaseModel from './base.abstract.model';
-import RoleModel from './role.model';
+import { RoleModel } from './role.model';
 
 @Entity({ name: 'users' })
-export default class UserModel extends BaseModel {
+export class UserModel extends BaseModel {
   @Column({
     unique: true,
   })
@@ -25,23 +25,26 @@ export default class UserModel extends BaseModel {
   @Column({
     name: 'login_attempts',
     type: 'tinyint',
+    default: 0,
   })
   loginAttempts: number;
 
   @Column({
     name: 'last_login_at',
+    nullable: true,
   })
   lastLoginAt: Date;
 
-  @Column({ name: 'is_test_user' })
+  @Column({ name: 'is_test_user', default: false })
   isTestUser: boolean;
 
   @Column({
     name: 'referral_token',
+    nullable: true,
   })
   referralToken: string;
 
-  @Column({ name: 'is_active' })
+  @Column({ name: 'is_active', default: true })
   isActive: boolean;
 
   @OneToOne(() => InvestorModel, (inv: InvestorModel) => inv.user)

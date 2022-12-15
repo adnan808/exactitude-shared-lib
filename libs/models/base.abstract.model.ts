@@ -17,7 +17,7 @@ export default abstract class BaseModel extends BaseEntity {
   @Index({ unique: true })
   resourceId: string;
 
-  @Column({ name: 'is_deleted' })
+  @Column({ name: 'is_deleted', default: false })
   isDeleted: boolean;
 
   @CreateDateColumn({ name: 'created_at' })
@@ -26,6 +26,6 @@ export default abstract class BaseModel extends BaseEntity {
   @UpdateDateColumn({ name: 'updated_at' })
   readonly updatedAt: Date;
 
-  @Column({ name: 'deleted_at' })
+  @Column({ name: 'deleted_at', nullable: true })
   deletedAt: Date;
 }
