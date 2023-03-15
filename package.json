@@ -10,7 +10,7 @@
   "scripts": {
     "preversion": "git diff-index --quiet HEAD --",
     "prebuild": "rimraf dist && npm run format && npm run lint",
-    "publish": "build && pnpm publish",
+    "publish": "pnpm build && pnpm publish",
     "postbuild": "npm run copy:templates && npm run update:libs",
     "copy:templates": "copyfiles -u 2 libs/common/services/mail/template/* dist/common",
     "format": "prettier --write \"libs/**/*.ts\"",
