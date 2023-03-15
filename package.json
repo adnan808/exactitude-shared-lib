@@ -1,6 +1,6 @@
 {
   "name": "@dashdevs/exactitude-shared-lib",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
   "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
@@ -10,6 +10,7 @@
   "scripts": {
     "preversion": "git diff-index --quiet HEAD --",
     "prebuild": "rimraf dist && npm run format && npm run lint",
+    "publish": "nest build && pnpm publish",
     "postbuild": "npm run copy:templates && npm run update:libs",
     "copy:templates": "copyfiles -u 2 libs/common/services/mail/template/* dist/common",
     "format": "prettier --write \"libs/**/*.ts\"",

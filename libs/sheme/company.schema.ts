@@ -18,7 +18,7 @@ export class Companie extends Document {
   @Prop({ type: [String] })
   names: string[];
 
-  @Prop({ type: [PeriodSubDoc] })
+  @Prop({ type: [SchemaFactory.createForClass(PeriodSubDoc)] })
   employees: PeriodSubDoc;
 
   @Prop()
