@@ -20,4 +20,4 @@ const OdmConfig = {
   database: process.env.MONGODB_DBNAME,
 };
 
-export default buildWithSecrets(OdmConfig);
+export const odmConfig = buildWithSecrets(OdmConfig);
