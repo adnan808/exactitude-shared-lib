@@ -1,8 +1,8 @@
 {
   "name": "@dashdevs/exactitude-shared-lib",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Package for shared all code base between internal services",
-  "main": "libs/index.ts",
+  "main": "dist/index.js",
   "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/dashdevs"
