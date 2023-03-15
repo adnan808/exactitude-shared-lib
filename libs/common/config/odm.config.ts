@@ -1,0 +1,23 @@
+import { ConfigModule } from '@nestjs/config';
+import SecretsService from './secrets.service';
+
+ConfigModule.forRoot({});
+const secretsService = new SecretsService();
+async function buildWithSecrets(odmConfig) {
+  await secretsService.init();
+  const dbSecrets = secretsService.getDbSecrets();
+  odmConfig.host ??= dbSecrets.host;
+  odmConfig.username ??= dbSecrets.username;
+  odmConfig.password ??= dbSecrets.password;
+  odmConfig.database ??= dbSecrets.dbname;
+  return `mongodb+srv://${odmConfig.username}:${odmConfig.password}@${odmConfig.host}/${odmConfig.database}?retryWrites=true&w=majority`;
+}
+
+const OdmConfig = {
+  host: process.env.MONGODB_HOST,
+  username: process.env.MONGODB_USERNAME,
+  password: process.env.MONGODB_PASSWORD,
+  database: process.env.MONGODB_DBNAME,
+};
+
+export default buildWithSecrets(OdmConfig);

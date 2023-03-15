@@ -1,11 +1,11 @@
 {
-  "name": "@vegainvestments/shared-lib",
-  "version": "0.0.32",
+  "name": "@dashdevs/exactitude-shared-lib",
+  "version": "0.0.1",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
-  "repository": "https://github.com/vegainvestments/shared-lib.git",
+  "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/vegainvestments"
+    "registry": "https://npm.pkg.github.com/dashdevs"
   },
   "scripts": {
     "preversion": "git diff-index --quiet HEAD --",
@@ -19,16 +19,20 @@
     "update:libs": "./scripts/update_libs.sh",
     "test": "jest",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js -d dist/common/database/database.datasource.js",
-    "typeorm:generate": "pnpm run typeorm migration:generate ./libs/models/migrations/migration",
+    "typeorm:generate": "pnpm run typeorm migration:generate libs/sheme/seeders/migration",
     "typeorm:show": "pnpm run typeorm migration:show",
     "typeorm:run": "pnpm run typeorm migration:run",
     "start": "nest start"
   },
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.272.0",
+    "@aws-sdk/smithy-client": "^3.292.0",
+    "@faker-js/faker": "^7.5.0",
     "@nestjs/common": "^9.2.1",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.2.1",
     "@nestjs/jwt": "^9.0.0",
+    "@nestjs/mongoose": "^9.2.1",
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.2.1",
     "@nestjs/typeorm": "^9.0.1",
@@ -36,7 +40,8 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "jwks-rsa": "^3.0.0",
-    "mysql2": "^2.3.3",
+    "mongoose": "^6.10.3",
+    "nestjs-seeder": "^0.3.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "redis": "^3.1.2",

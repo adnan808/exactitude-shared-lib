@@ -3,7 +3,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   publish:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-          scope: '@vegainvestments'
+          scope: '@dashdevs'
       - name: '🚀 Install pnpm'
         run: npm add -g pnpm
       - name: '🚀 Install packages'
@@ -35,4 +35,4 @@ jobs:
       - id: results
         run: |
           echo "::set-output name=version::$(jq -r .version ./package.json)"
-          echo "::set-output name=commit::https://github.com/vegainvestments/${{ github.event.repository.name }}/commit/${{ env.commit_hash }}"
+          echo "::set-output name=commit::https://github.com/dashdevs/${{ github.event.repository.name }}/commit/${{ env.commit_hash }}"

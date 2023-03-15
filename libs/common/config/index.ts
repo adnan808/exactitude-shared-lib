@@ -1,3 +1,2 @@
-export * from './validation.config';
-export * from './orm.config';
-export * from './redis.config';
+export * from './odm.config';
+export * from './secrets.service';

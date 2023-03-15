@@ -6,13 +6,13 @@ Go to [link](https://github.com/settings/tokens) generate token for read/write:p
 
 ```bash
 cat > .npmrc <<Template
-@vegainvestments:registry=https://npm.pkg.github.com
+@dashdevs:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 Template
 ```
 
 ```
-pnpm install @vegainvestments/shared-lib@latest
+pnpm install @dashdevs/exactitude-shared-lib@latest
 ```
 
 ### Local Develpment you can creat symlink on the package
@@ -21,7 +21,7 @@ pnpm install @vegainvestments/shared-lib@latest
 cd ./shared
 pnpm link
 cd ../api-website
-pnpm link @vegainvestments/shared-lib
+pnpm link @dashdevs/exactitude-shared-lib
 ```
 
 ### Scripts
