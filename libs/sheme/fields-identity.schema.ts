@@ -1,31 +1,33 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Document } from 'mongoose';
+import { HydratedDocument, Schema } from 'mongoose';
+
+export const options = {
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  },
+  collection: 'fields_identities'
+};
+
+export interface FieldsIdentity {
+  _id: string;
+  field_reference: string;
+  field_external_reference: string;
+  journey_type: number;
+  index_schema: string;
+  created_at: Date;
+  updated_at: Date;
+}
+export const fieldIdentitySchema = new Schema<FieldsIdentity>(
+    {
+      field_reference: String,
+      field_external_reference: String,
+      journey_type: Number,
+      index_schema: String,
+      created_at: Date,
+      updated_at: Date,
+    },
+    { collection: 'fields_identities' },
+);
 
 export type FieldsIdentityDocument = HydratedDocument<FieldsIdentity>;
 
-@Schema({
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
-  collection: 'fields_identities',
-})
-export class FieldsIdentity extends Document {
-  @Prop({ type: String, required: true })
-  field_reference: string;
-
-  @Prop({ type: String, required: true })
-  field_external_reference: string;
-
-  @Prop({ type: Number, required: true })
-  journey_type: number;
-
-  @Prop({ type: String })
-  index_schema: string;
-
-  @Prop()
-  created_at: Date;
-
-  @Prop()
-  updated_at: Date;
-}
-
-export const FieldsIdentitySchema =
-  SchemaFactory.createForClass(FieldsIdentity);

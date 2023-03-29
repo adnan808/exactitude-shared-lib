@@ -22,12 +22,14 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@dashdevs'
+      - name: '🚀 Install pnpm'
+        run: npm add -g pnpm
       - name: '🚀 Install packages'
-        run: npm install
+        run: pnpm install
       - name: '🚀 Build'
-        run: npm run-script build
+        run: pnpm run-script build
       - name: '🚀 Publish'
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - id: results

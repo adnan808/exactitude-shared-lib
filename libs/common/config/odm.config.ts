@@ -1,7 +1,5 @@
-import { ConfigModule } from '@nestjs/config';
 import SecretsService from './secrets.service';
 
-ConfigModule.forRoot({});
 const secretsService = new SecretsService();
 async function buildWithSecrets(odmConfig) {
   await secretsService.init();

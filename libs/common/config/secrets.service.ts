@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
 import {
   GetSecretValueCommand,
   GetSecretValueCommandOutput,
-  GetSecretValueCommandInput, SecretsManagerClient,
+  GetSecretValueCommandInput,
+  SecretsManagerClient,
 } from '@aws-sdk/client-secrets-manager';
 
 export type databaseSecrets = {
@@ -12,7 +12,6 @@ export type databaseSecrets = {
   username: string;
 };
 
-@Injectable()
 export default class SecretsService {
   private readonly client: SecretsManagerClient;
   private dbSecrets?: databaseSecrets;
