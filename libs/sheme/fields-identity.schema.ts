@@ -17,7 +17,7 @@ export class FieldsIdentity {
   created_at: Date;
   updated_at: Date;
 }
-export const fieldIdentitySchema = new Schema<FieldsIdentity>(
+export const FieldIdentitySchema = new Schema<FieldsIdentity>(
     {
       field_reference: String,
       field_external_reference: String,
