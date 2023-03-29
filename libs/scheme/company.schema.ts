@@ -34,8 +34,8 @@ const options = {
 
 export const CompanySchema = new Schema<Company>({
   name: String,
-  company_type: { type: Types.ObjectId, ref: CompanyType.name },
-  company_subtype: { type: Types.ObjectId, ref: CompanySubType.name },
+  company_type: { type: Types.ObjectId, ref: 'CompanyType' },
+  company_subtype: { type: Types.ObjectId, ref: 'CompanySubType' },
   logo: String,
   website_url: String,
   names: [String],

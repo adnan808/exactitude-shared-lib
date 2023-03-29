@@ -19,7 +19,7 @@ export const options = {
 
 export const UploadSchema = new Schema({
   name: String,
-  researcher: { type: Types.ObjectId, ref: User.name },
+  researcher: { type: Types.ObjectId, ref: 'User' },
   type: { type: Number, required: true },
   created_at: Date,
   updated_at: Date,

@@ -25,9 +25,9 @@ const options = {
 };
 
 export const MoveSchema = new Schema({
-  upload: { type: Types.ObjectId, ref: Upload.name, required: true },
-  profile: { type: Types.ObjectId, ref: Profile.name },
-  field_identity: { type: Types.ObjectId, ref: FieldsIdentity.name, required: true },
+  upload: { type: Types.ObjectId, ref: 'Upload', required: true },
+  profile: { type: Types.ObjectId, ref: 'Profile' },
+  field_identity: { type: Types.ObjectId, ref: 'FieldsIdentity', required: true },
   old_value: String,
   new_value: String,
   approved: { type: Boolean, required: true },

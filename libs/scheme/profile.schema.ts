@@ -80,13 +80,13 @@ class Profile extends Document {
 }
 
 const ProfileSchema = new Schema<Profile>({
-  upload: { type: Types.ObjectId, ref: Upload.name, required: true },
+  upload: { type: Types.ObjectId, ref: 'Upload', required: true },
   profile_id: { type: String, required: true, unique: true },
   edit_suggestions: [],
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: null },
   scraped_at: Date,
-  profile: { type: Types.ObjectId, ref: ProfileSubDoc.name }
+  profile: { type: Types.ObjectId, ref: 'ProfileSubDoc' }
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;

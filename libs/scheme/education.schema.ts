@@ -22,7 +22,7 @@ const educationSchema = new Schema({
   name: String,
   logo: String,
   names: [String],
-  country: { type: Types.ObjectId, ref: Country.name },
+  country: { type: Types.ObjectId, ref: 'Country' },
   created_at: Date,
   updated_at: Date,
 }, options);
