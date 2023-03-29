@@ -86,7 +86,7 @@ const ProfileSchema = new Schema<Profile>({
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: null },
   scraped_at: Date,
-  profile: { type: ProfileSubDoc }
+  profile: { type: Types.ObjectId, ref: ProfileSubDoc.name }
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;
