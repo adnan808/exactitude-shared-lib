@@ -16,7 +16,7 @@ export class Move extends Document {
   updated_at: Date;
 }
 
-export const options = {
+const options = {
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
