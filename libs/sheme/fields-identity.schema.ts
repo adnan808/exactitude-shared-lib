@@ -8,7 +8,7 @@ export const options = {
   collection: 'fields_identities'
 };
 
-export interface FieldsIdentity {
+export class FieldsIdentity {
   _id: string;
   field_reference: string;
   field_external_reference: string;
@@ -26,7 +26,7 @@ export const fieldIdentitySchema = new Schema<FieldsIdentity>(
       created_at: Date,
       updated_at: Date,
     },
-    { collection: 'fields_identities' },
+    options,
 );
 
 export type FieldsIdentityDocument = HydratedDocument<FieldsIdentity>;
