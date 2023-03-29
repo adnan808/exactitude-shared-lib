@@ -35,7 +35,7 @@ const options = {
 const countrySchema = new Schema({
   name: String,
   names: [String],
-  languages: [{ type: Types.ObjectId, ref: 'languages' }],
+  languages: [{ type: Types.ObjectId, ref: Language.name }],
   cities: [citySchema],
   created_at: Date,
   updated_at: Date,
