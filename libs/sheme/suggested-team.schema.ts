@@ -1,5 +1,4 @@
 import { Document, Schema, HydratedDocument } from 'mongoose';
-import {SuggestedStrategy} from "./suggested-strategy.schema";
 
 export class SuggestedTeam extends Document {
   name: string;

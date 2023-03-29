@@ -1,16 +1,6 @@
 import { HydratedDocument, Document, Schema, Types } from 'mongoose';
 import { CompanySubType, CompanyType } from './company-type.schema';
 
-export class DateSubDoc extends Document {
-  month: number;
-  year: number;
-}
-
-export class PeriodSubDoc extends Document {
-  start: DateSubDoc;
-  end: DateSubDoc;
-}
-
 export class Company extends Document {
   name: string;
   company_type: CompanyType;
