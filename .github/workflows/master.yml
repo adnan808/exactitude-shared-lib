@@ -24,6 +24,8 @@ jobs:
           scope: '@dashdevs'
       - name: '🚀 Install pnpm'
         run: npm add -g pnpm
+      - name: '🚀 Install nest-cli'
+        run: pnpm install -g @nestjs/cli
       - name: '🚀 Install packages'
         run: pnpm install
       - name: '🚀 Build'
