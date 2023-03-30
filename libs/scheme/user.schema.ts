@@ -30,13 +30,13 @@ export class User extends Document {
 
 const listSubDocSchema = new Schema({
   name: String,
-  profiles: [{ type: Types.ObjectId, ref: 'Profile' }],
+  profiles: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
   created_at: Date,
   updated_at: Date,
 });
 
 const noteSubDocSchema = new Schema({
-  profiles: { type: Types.ObjectId, ref: 'Profile' },
+  profiles: { type: Schema.Types.ObjectId, ref: 'Profile' },
   note: String,
   created_at: Date,
   updated_at: Date,

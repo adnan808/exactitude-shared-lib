@@ -3,16 +3,16 @@ import { Language } from './language.schema';
 
 export class City extends Document {
   name: string;
-  names: string[];
+  names: [String];
   created_at: Date;
   updated_at: Date;
 }
 
 export class Country extends Document {
   name: string;
-  names: string[];
-  languages: Language[];
-  cities: City[];
+  names: [String];
+  languages: [Language];
+  cities: [City];
   created_at: Date;
   updated_at: Date;
 }
@@ -35,7 +35,7 @@ const options = {
 const countrySchema = new Schema({
   name: String,
   names: [String],
-  languages: [{ type: Types.ObjectId, ref: 'Language' }],
+  languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
   cities: [citySchema],
   created_at: Date,
   updated_at: Date,
