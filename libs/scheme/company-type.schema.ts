@@ -5,10 +5,11 @@ export class CompanySubType extends Document {
   name: string;
 }
 
-const companySubTypeSchema = new Schema({
+export const CompanySubTypeSchema = new Schema({
   _id: String,
   name: String,
 });
+export type CompanySubTypeDocument = HydratedDocument<CompanyType>;
 
 const options = {
   timestamps: {
@@ -27,7 +28,7 @@ export class CompanyType extends Document {
 
 export const CompanyTypeSchema = new Schema<CompanyType>({
   name: String,
-  subtypes: [companySubTypeSchema],
+  subtypes: [CompanySubTypeSchema],
   created_at: Date,
   updated_at: Date,
 }, options);
