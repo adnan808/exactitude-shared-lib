@@ -26,6 +26,8 @@ jobs:
         run: npm add -g pnpm
       - name: '🚀 Install packages'
         run: pnpm install
+      - name: '🚀 Build'
+        run: tsc --build
       - name: '🚀 Publish'
         run: pnpm publish
         env:

@@ -11,8 +11,8 @@ export class Tag extends Document {
 }
 
 const TagSchema = new Schema<Tag>({
-  user: { type: Types.ObjectId, ref: 'User' },
-  profiles: [{ type: Types.ObjectId, ref: 'Profile' }],
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  profiles: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
   name: String,
   created_at: Date,
   updated_at: Date,
