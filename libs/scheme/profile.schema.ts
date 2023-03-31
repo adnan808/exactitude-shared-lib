@@ -18,9 +18,9 @@ export class LocalSubDoc extends Document {
 }
 
 export class LanguagesSubDoc extends Document {
-  primaryLocale: LocalSubDoc;
-  supportedLocales: LocalSubDoc[];
-  profileLanguages: Language[];
+  primary_locale: LocalSubDoc;
+  supported_locales: LocalSubDoc[];
+  profile_languages: Language[];
 }
 
 export class DateSubDoc extends Document {
@@ -93,9 +93,9 @@ const LocalSubDocSchema = new Schema<LocalSubDoc>({
 });
 
 const LanguagesSubDocSchema = new Schema<LanguagesSubDoc>({
-  primaryLocale: { type: LocalSubDocSchema },
-  supportedLocales: { type: [LocalSubDocSchema] },
-  profileLanguages: { type: [Schema.Types.ObjectId], ref: 'Language', required: true }
+  primary_locale: { type: LocalSubDocSchema },
+  supported_locales: { type: [LocalSubDocSchema] },
+  profile_languages: { type: [Schema.Types.ObjectId], ref: 'Language', required: true }
 });
 
 const DateSubDocSchema = new Schema<DateSubDoc>({
