@@ -4,7 +4,7 @@ import { CompanySubType, CompanyType } from './company-type.schema';
 export class Company extends Document {
   name: string;
   company_type: CompanyType;
-  company_subtype: CompanySubType;
+  company_subtype: Schema.Types.ObjectId;
   logo: string;
   website_url: string;
   names: string[];
@@ -35,7 +35,7 @@ const options = {
 export const CompanySchema = new Schema<Company>({
   name: String,
   company_type: { type: Schema.Types.ObjectId, ref: 'CompanyType' },
-  company_subtype: { type: Schema.Types.ObjectId, ref: 'CompanySubType' },
+  company_subtype: Schema.Types.ObjectId,
   logo: String,
   website_url: String,
   names: [String],
