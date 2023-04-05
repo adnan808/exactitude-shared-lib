@@ -3,12 +3,20 @@ import { FieldsIdentity } from "./fields-identity.schema";
 import { Profile } from "./profile.schema";
 import { ScrapperJob } from './scrapper-job.schema';
 
+class StatusChange extends Document {
+  user: Schema.Types.ObjectId;
+  status: Number;
+  created_at: Date;
+}
+
 export class Move extends Document {
   scrapper_job: ScrapperJob;
   profile: Profile;
   field_identity: FieldsIdentity;
   old_value: string;
   new_value: string;
+  status: Number;
+  status_changes: StatusChange[];
   approved: boolean;
   implemented: boolean;
   implemented_at: Date;
@@ -30,6 +38,12 @@ export const MoveSchema = new Schema({
   field_identity: { type: Schema.Types.ObjectId, ref: 'FieldsIdentity', required: true },
   old_value: String,
   new_value: String,
+  status: Number,
+  status_changes: [{
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    status: Number,
+    created_at: Date
+  }],
   approved: { type: Boolean, required: true },
   implemented: { type: Boolean, required: true },
   implemented_at: Date,
