@@ -1,3 +1,3 @@
 export * from './scheme';
 export * from './common/config';
-export * from './common/enums';
+export * from './common/enum';
