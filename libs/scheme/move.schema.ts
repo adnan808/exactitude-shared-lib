@@ -1,10 +1,10 @@
 import { Types, HydratedDocument, Document, Schema } from 'mongoose';
 import { FieldsIdentity } from "./fields-identity.schema";
 import { Profile } from "./profile.schema";
-import { Upload } from "./upload.schema";
+import { ScrapperJob } from './scrapper-job.schema';
 
 export class Move extends Document {
-  upload: Upload;
+  scrapper_job: ScrapperJob;
   profile: Profile;
   field_identity: FieldsIdentity;
   old_value: string;
@@ -25,7 +25,7 @@ const options = {
 };
 
 export const MoveSchema = new Schema({
-  upload: { type: Schema.Types.ObjectId, ref: 'Upload', required: true },
+  scrapper_job: { type: Schema.Types.ObjectId, ref: 'ScrapperJob', required: true },
   profile: { type: Schema.Types.ObjectId, ref: 'Profile' },
   field_identity: { type: Schema.Types.ObjectId, ref: 'FieldsIdentity', required: true },
   old_value: String,
