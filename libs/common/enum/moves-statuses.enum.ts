@@ -1,4 +1,6 @@
 export enum MovesStatusesEnum {
-    CREATED,
-    APPLIED,
+  CREATED,
+  APPLIED,
+  NEED_CHECK,
+  INDEX_ERROR,
 }
