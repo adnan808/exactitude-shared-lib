@@ -48,6 +48,7 @@ export const MoveSchema = new Schema(
     },
     old_value: String,
     new_value: String,
+    array_positions: String,
     status: Number,
     status_changes: [
       {
