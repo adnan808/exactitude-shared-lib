@@ -3,8 +3,8 @@ import { FieldsIdentity } from './fields-identity.schema';
 import { Profile } from './profile.schema';
 import { ScrapperJob } from './scrapper-job.schema';
 
-class StatusChange extends Document {
-  user: Schema.Types.ObjectId;
+export class StatusChange extends Document {
+  user: Schema.Types.ObjectId | null;
   status: number;
   created_at: Date;
 }
@@ -18,7 +18,6 @@ export class Move extends Document {
   array_positions: string;
   status: number;
   status_changes: StatusChange[];
-  approved: boolean;
   implemented: boolean;
   implemented_at: Date;
   created_at: Date;
