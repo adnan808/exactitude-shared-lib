@@ -40,6 +40,28 @@ export class EducationSubDoc extends Document {
   field_of_study: string;
 }
 
+export class CompanySubDoc extends Document {
+  name: string;
+  logo: string;
+  url: string;
+  employees: DateSubDoc;
+}
+
+export class ProfilePositionSubDoc extends Document {
+  location: string;
+  date: PeriodSubDoc;
+  company: string;
+  description: string;
+  title: string;
+}
+
+export class PositionGroupSubDoc extends Document {
+  company: CompanySubDoc;
+  companyUrl: string;
+  date: PeriodSubDoc;
+  profile_positions: ProfilePositionSubDoc[];
+}
+
 export class ProfileSubDoc extends Document {
   entity_urn: string;
   object_urn: string;
@@ -64,7 +86,7 @@ export class ProfileSubDoc extends Document {
   publications: [];
   courses: [];
   test_scores: [];
-  position_groups: [];
+  position_groups: PositionGroupSubDoc[];
   volunteer_experiences: [];
   skills: [];
 }
@@ -115,6 +137,29 @@ const EducationSubDocSchema = new Schema<EducationSubDoc>({
   field_of_study: { type: String }
 });
 
+const CompanySubDocSchema = new Schema<CompanySubDoc>({
+  name: { type: String },
+  logo: { type: String },
+  url: { type: String },
+  employees: { type: DateSubDocSchema },
+})
+
+
+const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
+  location: { type: String },
+  date: { type: PeriodSubDocSchema },
+  company: { type: String },
+  description: { type: String },
+  title: { type: String },
+})
+
+const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
+  company: { type: CompanySubDocSchema },
+  companyUrl: { type: String },
+  date: { type: PeriodSubDocSchema },
+  profile_positions: ProfilePositionSubDocSchema,
+})
+
 const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   entity_urn: { type: String },
   object_urn: { type: String },
@@ -139,7 +184,7 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   publications: [String],
   courses: [String],
   test_scores: [String],
-  position_groups: [String],
+  position_groups: PositionGroupSubDocSchema,
   volunteer_experiences: [String],
   skills: [String]
 });
