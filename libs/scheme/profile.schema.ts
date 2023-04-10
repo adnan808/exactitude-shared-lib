@@ -1,8 +1,8 @@
 import { HydratedDocument, Types, Schema, Document } from 'mongoose';
-import { Language } from "./language.schema";
-import { Education } from "./education.schema";
-import { Degree } from "./degree.schema";
-import { Upload } from "./upload.schema";
+import { Language } from './language.schema';
+import { Education } from './education.schema';
+import { Degree } from './degree.schema';
+import { Upload } from './upload.schema';
 
 export class LocationSubDoc extends Document {
   country: string;
@@ -106,35 +106,39 @@ const LocationSubDocSchema = new Schema<LocationSubDoc>({
   short: { type: String },
   city: { type: String },
   state: { type: String },
-  default: { type: String }
+  default: { type: String },
 });
 
 const LocalSubDocSchema = new Schema<LocalSubDoc>({
   country: { type: String },
-  language: { type: String }
+  language: { type: String },
 });
 
 const LanguagesSubDocSchema = new Schema<LanguagesSubDoc>({
   primary_locale: { type: LocalSubDocSchema },
   supported_locales: { type: [LocalSubDocSchema] },
-  profile_languages: { type: [Schema.Types.ObjectId], ref: 'Language', required: true }
+  profile_languages: {
+    type: [Schema.Types.ObjectId],
+    ref: 'Language',
+    required: true,
+  },
 });
 
 const DateSubDocSchema = new Schema<DateSubDoc>({
   month: { type: Number },
-  year: { type: Number }
+  year: { type: Number },
 });
 
 const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
   start: { type: DateSubDocSchema },
-  end: { type: DateSubDocSchema }
+  end: { type: DateSubDocSchema },
 });
 
 const EducationSubDocSchema = new Schema<EducationSubDoc>({
   date: { type: PeriodSubDocSchema },
   school: { type: Schema.Types.ObjectId, ref: 'Education', required: true },
   degree: { type: Schema.Types.ObjectId, ref: 'Degree', required: true },
-  field_of_study: { type: String }
+  field_of_study: { type: String },
 });
 
 const CompanySubDocSchema = new Schema<CompanySubDoc>({
@@ -142,8 +146,7 @@ const CompanySubDocSchema = new Schema<CompanySubDoc>({
   logo: { type: String },
   url: { type: String },
   employees: { type: DateSubDocSchema },
-})
-
+});
 
 const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
   location: { type: String },
@@ -151,14 +154,14 @@ const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
   company: { type: String },
   description: { type: String },
   title: { type: String },
-})
+});
 
 const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
   company: { type: CompanySubDocSchema },
   companyUrl: { type: String },
   date: { type: PeriodSubDocSchema },
-  profile_positions: ProfilePositionSubDocSchema,
-})
+  profile_positions: [ProfilePositionSubDocSchema],
+});
 
 const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   entity_urn: { type: String },
@@ -184,9 +187,9 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   publications: [String],
   courses: [String],
   test_scores: [String],
-  position_groups: PositionGroupSubDocSchema,
+  position_groups: [PositionGroupSubDocSchema],
   volunteer_experiences: [String],
-  skills: [String]
+  skills: [String],
 });
 
 const ProfileSchema = new Schema<Profile>({
@@ -196,7 +199,7 @@ const ProfileSchema = new Schema<Profile>({
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: null },
   scraped_at: Date,
-  profile: ProfileSubDocSchema
+  profile: ProfileSubDocSchema,
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;
