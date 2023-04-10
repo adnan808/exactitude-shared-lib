@@ -6,16 +6,19 @@ export class SuggestedCoverage extends Document {
   updated_at: Date;
 }
 
-export const SuggestedCoverageSchema = new Schema<SuggestedCoverage>({
-  name: String,
-  created_at: Date,
-  updated_at: Date,
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+export const SuggestedCoverageSchema = new Schema<SuggestedCoverage>(
+  {
+    name: String,
+    created_at: Date,
+    updated_at: Date,
   },
-  collection: 'suggested_coverage',
-});
+  {
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+    collection: 'suggested_coverage',
+  },
+);
 
 export type SuggestedCoverageDocument = HydratedDocument<SuggestedCoverage>;
