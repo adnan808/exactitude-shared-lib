@@ -178,7 +178,7 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   treasury_media: [],
   languages: LanguagesSubDocSchema,
   industry: { type: String },
-  education: EducationSubDocSchema,
+  education: [EducationSubDocSchema],
   patents: [String],
   awards: [String],
   certifications: [String],
