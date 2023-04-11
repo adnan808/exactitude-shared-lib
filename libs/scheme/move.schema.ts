@@ -37,7 +37,6 @@ export const MoveSchema = new Schema(
     scrapper_job: {
       type: Schema.Types.ObjectId,
       ref: 'ScrapperJob',
-      required: true,
     },
     profile: { type: Schema.Types.ObjectId, ref: 'Profile' },
     field_identity: {

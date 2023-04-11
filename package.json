@@ -1,6 +1,6 @@
 {
   "name": "@dashdevs/exactitude-shared-lib",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
   "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
@@ -33,6 +33,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.6.0",
     "typeorm": "^0.3.11",
+    "underscore": "^1.13.6",
     "webpack": "^5.75.0"
   },
   "devDependencies": {
@@ -54,6 +55,9 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.1",
     "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "underscore": "^1.13.6"
   },
   "jest": {
     "moduleFileExtensions": [
