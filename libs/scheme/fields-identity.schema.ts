@@ -5,7 +5,7 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'fields_identities'
+  collection: 'fields_identities',
 };
 
 export class FieldsIdentity {
@@ -18,16 +18,15 @@ export class FieldsIdentity {
   updated_at: Date;
 }
 export const FieldIdentitySchema = new Schema<FieldsIdentity>(
-    {
-      field_reference: String,
-      field_external_reference: String,
-      journey_type: Number,
-      index_schema: String,
-      created_at: Date,
-      updated_at: Date,
-    },
-    options,
+  {
+    field_reference: { type: String, unique: true },
+    field_external_reference: { type: String, unique: true },
+    journey_type: Number,
+    index_schema: String,
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
 );
 
 export type FieldsIdentityDocument = HydratedDocument<FieldsIdentity>;
-
