@@ -1,4 +1,5 @@
 import _ from 'underscore';
+import { Move } from '../../scheme';
 
 const ARRAY_SPLIT_SYMBOL = '[].';
 const POSITIONS_SPLIT_SYMBOL = ',';
@@ -54,5 +55,18 @@ function getElementForArraysInObject(
     currentResult[currentIndex],
     splittedReference,
     splittedPositions,
+  );
+}
+export function findMoveByReference(moves: Move[], reference: string): Move {
+  return moves.find(
+    (move) => move.field_identity.field_reference === reference,
+  );
+}
+export function filterMovesByReference(
+  moves: Move[],
+  reference: string,
+): Move[] {
+  return moves.filter(
+    (move) => move.field_identity.field_reference === reference,
   );
 }
