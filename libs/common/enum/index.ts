@@ -5,4 +5,5 @@ export * from './moves-statuses.enum';
 export * from './profiles-type.enum';
 export * from './resource.enum';
 export * from './usersRoles.enum';
+export * from './upload-type.enum';
 export * from './index.enum';
