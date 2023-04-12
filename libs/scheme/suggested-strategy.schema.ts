@@ -19,14 +19,17 @@ export class SuggestedStrategy extends Document {
   updated_at: Date;
 }
 
-export const SuggestedStrategySchema = new Schema<SuggestedStrategy>({
-  name: String,
-  substrategies: [SubstrategySchema],
-  created_at: Date,
-  updated_at: Date,
-}, {
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
-  collection: 'suggested_strategy',
-});
+export const SuggestedStrategySchema = new Schema<SuggestedStrategy>(
+  {
+    name: String,
+    substrategies: [SubstrategySchema],
+    created_at: Date,
+    updated_at: Date,
+  },
+  {
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    collection: 'suggested_strategy',
+  },
+);
 
 export type SuggestedStrategyDocument = HydratedDocument<SuggestedStrategy>;

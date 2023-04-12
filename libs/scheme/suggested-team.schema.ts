@@ -6,13 +6,16 @@ export class SuggestedTeam extends Document {
   updated_at: Date;
 }
 
-export const SuggestedTeamSchema = new Schema<SuggestedTeam>({
-  name: String,
-  created_at: Date,
-  updated_at: Date,
-}, {
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
-  collection: 'suggested_team',
-});
+export const SuggestedTeamSchema = new Schema<SuggestedTeam>(
+  {
+    name: String,
+    created_at: Date,
+    updated_at: Date,
+  },
+  {
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    collection: 'suggested_team',
+  },
+);
 
 export type SuggestedTeamDocument = HydratedDocument<SuggestedTeam>;

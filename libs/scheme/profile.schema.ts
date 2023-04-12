@@ -1,4 +1,4 @@
-import { HydratedDocument, Types, Schema, Document } from 'mongoose';
+import { HydratedDocument, Schema, Document } from 'mongoose';
 import { Language } from './language.schema';
 import { Education } from './education.schema';
 import { Degree } from './degree.schema';

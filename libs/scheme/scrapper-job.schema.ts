@@ -5,7 +5,7 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'scrapper_job'
+  collection: 'scrapper_job',
 };
 
 export class ScrapperJob extends Document {
@@ -13,9 +13,12 @@ export class ScrapperJob extends Document {
   updated_at: Date;
 }
 
-export const ScrapperJobSchema = new Schema({
-  created_at: Date,
-  updated_at: Date,
-}, options);
+export const ScrapperJobSchema = new Schema(
+  {
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
+);
 
 export type ScrapperJobDocument = HydratedDocument<ScrapperJob>;
