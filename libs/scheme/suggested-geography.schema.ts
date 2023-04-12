@@ -6,14 +6,16 @@ export class SuggestedGeography extends Document {
   updated_at: Date;
 }
 
-export const SuggestedGeographySchema = new Schema<SuggestedGeography>({
-  name: String,
-  created_at: Date,
-  updated_at: Date,
-}, {
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
-  collection: 'suggested_geography',
-});
-
+export const SuggestedGeographySchema = new Schema<SuggestedGeography>(
+  {
+    name: String,
+    created_at: Date,
+    updated_at: Date,
+  },
+  {
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    collection: 'suggested_geography',
+  },
+);
 
 export type SuggestedGeographyDocument = HydratedDocument<SuggestedGeography>;

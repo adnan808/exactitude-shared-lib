@@ -13,16 +13,19 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'languages'
+  collection: 'languages',
 };
 
-const languageSchema = new Schema({
-  name: String,
-  names: [String],
-  proficiency: String,
-  created_at: Date,
-  updated_at: Date,
-}, options);
+const languageSchema = new Schema(
+  {
+    name: String,
+    names: [String],
+    proficiency: String,
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
+);
 
 export const LanguageSchema = languageSchema;
 

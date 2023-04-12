@@ -28,7 +28,7 @@ export const getFromObjectByReference = (
   reference: string,
   positions: string | null,
 ) => {
-  if (positions === null) {
+  if (positions === null || obj === undefined) {
     return getPropertyValue(obj, reference);
   }
   const splittedReference = reference.split(ARRAY_SPLIT_SYMBOL);

@@ -16,7 +16,7 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'company_types'
+  collection: 'company_types',
 };
 
 export class CompanyType extends Document {
@@ -26,11 +26,14 @@ export class CompanyType extends Document {
   updated_at: Date;
 }
 
-export const CompanyTypeSchema = new Schema<CompanyType>({
-  name: String,
-  subtypes: [CompanySubTypeSchema],
-  created_at: Date,
-  updated_at: Date,
-}, options);
+export const CompanyTypeSchema = new Schema<CompanyType>(
+  {
+    name: String,
+    subtypes: [CompanySubTypeSchema],
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
+);
 
 export type CompanyTypeDocument = HydratedDocument<CompanyType>;

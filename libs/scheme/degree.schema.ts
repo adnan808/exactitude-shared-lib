@@ -12,15 +12,18 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'degrees'
+  collection: 'degrees',
 };
 
-const degreeSchema = new Schema({
-  degree_names: [String],
-  degree_name: String,
-  created_at: Date,
-  updated_at: Date,
-}, options);
+const degreeSchema = new Schema(
+  {
+    degree_names: [String],
+    degree_name: String,
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
+);
 
 export const DegreeSchema = degreeSchema;
 

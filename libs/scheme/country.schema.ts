@@ -1,16 +1,16 @@
-import { HydratedDocument, Document, Schema, Types } from 'mongoose';
+import { HydratedDocument, Document, Schema } from 'mongoose';
 import { Language } from './language.schema';
 
 export class City extends Document {
   name: string;
-  names: [String];
+  names: [string];
   created_at: Date;
   updated_at: Date;
 }
 
 export class Country extends Document {
   name: string;
-  names: [String];
+  names: [string];
   languages: [Language];
   cities: [City];
   created_at: Date;
@@ -29,17 +29,20 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'countries'
+  collection: 'countries',
 };
 
-const countrySchema = new Schema({
-  name: String,
-  names: [String],
-  languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
-  cities: [citySchema],
-  created_at: Date,
-  updated_at: Date,
-}, options);
+const countrySchema = new Schema(
+  {
+    name: String,
+    names: [String],
+    languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
+    cities: [citySchema],
+    created_at: Date,
+    updated_at: Date,
+  },
+  options,
+);
 
 export const CountrySchema = countrySchema;
 

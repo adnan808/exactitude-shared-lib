@@ -1,4 +1,4 @@
-import { Types, HydratedDocument, Document, Schema } from 'mongoose';
+import { HydratedDocument, Document, Schema } from 'mongoose';
 import { User } from './user.schema';
 
 export class Upload extends Document {

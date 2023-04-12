@@ -6,15 +6,18 @@ export class Gender extends Document {
   updated_at: Date;
 }
 
-export const GenderSchema = new Schema<Gender>({
-  name: String,
-  created_at: Date,
-  updated_at: Date,
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+export const GenderSchema = new Schema<Gender>(
+  {
+    name: String,
+    created_at: Date,
+    updated_at: Date,
   },
-});
+  {
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  },
+);
 
 export type GenderDocument = HydratedDocument<Gender>;

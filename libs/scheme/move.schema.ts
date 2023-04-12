@@ -1,4 +1,4 @@
-import { Types, HydratedDocument, Document, Schema } from 'mongoose';
+import { HydratedDocument, Document, Schema } from 'mongoose';
 import { FieldsIdentity } from './fields-identity.schema';
 import { Profile } from './profile.schema';
 import { ScrapperJob } from './scrapper-job.schema';
