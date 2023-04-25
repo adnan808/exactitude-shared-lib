@@ -28,7 +28,7 @@ export class Country extends Document {
   name: string;
   names: [string];
   languages: [Language];
-  cities: City[];
+  cities: any;
   created_at: Date;
   updated_at: Date;
 }
@@ -38,7 +38,7 @@ export const CountrySchema = new Schema<Country>(
     name: String,
     names: [String],
     languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
-    cities: [CitySchema],
+    cities: [],
     created_at: Date,
     updated_at: Date,
   },
