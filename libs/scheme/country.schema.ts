@@ -44,6 +44,8 @@ const countrySchema = new Schema(
   options,
 );
 
+export const CitySchema = citySchema;
+
 export const CountrySchema = countrySchema;
 
 export type CountryDocument = HydratedDocument<Country>;
