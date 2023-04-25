@@ -15,6 +15,8 @@ export enum IdentitiesReferenceEnum {
   START_FIRST_SELLSIDE = 'start_first_sellside',
   START_FIRST_BUYSIDE = 'start_first_buyside',
   START_CURRENT_EMPLOYEER = 'start_current_employeer',
+  LOCATION_CITY = 'location.city',
+  LOCATION_COUNTRY = 'location.country',
 }
 
 export enum JourneyTypesEnum {
