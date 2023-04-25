@@ -8,6 +8,14 @@ export class City extends Document {
   updated_at: Date;
 }
 
+export const CitySchema = new Schema<City>({
+  name: String,
+  names: [String],
+  created_at: Date,
+  updated_at: Date,
+});
+export type CityTypeDocument = HydratedDocument<Country>;
+
 export class Country extends Document {
   name: string;
   names: [string];
@@ -17,13 +25,6 @@ export class Country extends Document {
   updated_at: Date;
 }
 
-const citySchema = new Schema<City>({
-  name: String,
-  names: [String],
-  created_at: Date,
-  updated_at: Date,
-});
-
 const options = {
   timestamps: {
     createdAt: 'created_at',
@@ -32,20 +33,16 @@ const options = {
   collection: 'countries',
 };
 
-const countrySchema = new Schema<Country>(
+export const CountrySchema = new Schema<Country>(
   {
     name: String,
     names: [String],
     languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
-    cities: [citySchema],
+    cities: [CitySchema],
     created_at: Date,
     updated_at: Date,
   },
   options,
 );
-
-export const CitySchema = citySchema;
-
-export const CountrySchema = countrySchema;
 
 export type CountryDocument = HydratedDocument<Country>;
