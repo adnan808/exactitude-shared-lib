@@ -17,7 +17,7 @@ export class Country extends Document {
   updated_at: Date;
 }
 
-const citySchema = new Schema({
+const citySchema = new Schema<City>({
   name: String,
   names: [String],
   created_at: Date,
@@ -32,7 +32,7 @@ const options = {
   collection: 'countries',
 };
 
-const countrySchema = new Schema(
+const countrySchema = new Schema<Country>(
   {
     name: String,
     names: [String],
