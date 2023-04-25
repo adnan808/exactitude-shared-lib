@@ -4,4 +4,6 @@ export enum MovesStatusesEnum {
   NEED_CHECK,
   INDEX_ERROR,
   SUBMITTED,
+  INDEX_ERROR_AND_NEED_CHECK,
+  UNVERIFIED,
 }
