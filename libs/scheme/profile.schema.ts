@@ -99,6 +99,7 @@ class Profile extends Document {
   updated_at: Date;
   scraped_at: Date;
   profile: ProfileSubDoc;
+  is_archived: boolean;
 }
 
 const LocationSubDocSchema = new Schema<LocationSubDoc>({
