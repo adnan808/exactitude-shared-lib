@@ -32,3 +32,12 @@ export const TYPES_FOR_SCRAPPER = [
   JourneyTypesEnum.STRINGIFY,
   JourneyTypesEnum.INDEX_FIELD,
 ];
+
+export enum DictionariesEnum {
+  country = 'location.country',
+  education = 'education[].school',
+  language = 'languages.profile_languages',
+  city = 'location.city',
+  degree = 'education[].degree',
+  company = 'position_groups[].company',
+}
