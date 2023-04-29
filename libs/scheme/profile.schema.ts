@@ -17,10 +17,15 @@ export class LocalSubDoc extends Document {
   language: string;
 }
 
+export class ProfileLanguageSubDoc extends Document {
+  name: string;
+  proficiency: string;
+}
+
 export class LanguagesSubDoc extends Document {
   primary_locale: LocalSubDoc;
   supported_locales: LocalSubDoc[];
-  profile_languages: Language[];
+  profile_languages: ProfileLanguageSubDoc[];
 }
 
 export class DateSubDoc extends Document {
@@ -56,7 +61,7 @@ export class ProfilePositionSubDoc extends Document {
 }
 
 export class PositionGroupSubDoc extends Document {
-  company: CompanySubDoc;
+  company: string;
   companyUrl: string;
   date: PeriodSubDoc;
   profile_positions: ProfilePositionSubDoc[];
@@ -115,13 +120,16 @@ const LocalSubDocSchema = new Schema<LocalSubDoc>({
   language: { type: String },
 });
 
+const ProfileLanguageSubDocSchema = new Schema<ProfileLanguageSubDoc>({
+  name: { type: String },
+  proficiency: { type: String },
+});
+
 const LanguagesSubDocSchema = new Schema<LanguagesSubDoc>({
   primary_locale: { type: LocalSubDocSchema },
   supported_locales: { type: [LocalSubDocSchema] },
   profile_languages: {
-    type: [Schema.Types.ObjectId],
-    ref: 'Language',
-    required: true,
+    type: [ProfileLanguageSubDocSchema],
   },
 });
 
@@ -158,7 +166,7 @@ const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
 });
 
 const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
-  company: { type: CompanySubDocSchema },
+  company: { type: String },
   companyUrl: { type: String },
   date: { type: PeriodSubDocSchema },
   profile_positions: [ProfilePositionSubDocSchema],
