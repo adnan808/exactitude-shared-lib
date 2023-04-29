@@ -3,7 +3,6 @@ import { HydratedDocument, Document, Schema } from 'mongoose';
 export class Language extends Document {
   name: string;
   names: string[];
-  proficiency: string;
   created_at: Date;
   updated_at: Date;
 }
