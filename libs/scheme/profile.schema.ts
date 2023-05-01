@@ -1,5 +1,4 @@
 import { HydratedDocument, Schema, Document } from 'mongoose';
-import { Language } from './language.schema';
 import { Education } from './education.schema';
 import { Degree } from './degree.schema';
 import { Upload } from './upload.schema';
@@ -31,6 +30,11 @@ export class LanguagesSubDoc extends Document {
 export class DateSubDoc extends Document {
   month: number;
   year: number;
+}
+
+export class BirthDateSubDoc extends Document {
+  month: number;
+  day: number;
 }
 
 export class PeriodSubDoc extends Document {
@@ -73,7 +77,7 @@ export class ProfileSubDoc extends Document {
   first_name: string;
   last_name: string;
   sub_title: string;
-  birth_date: string;
+  birth_date: BirthDateSubDoc;
   profile_picture: string;
   summary: string;
   location: LocationSubDoc;
@@ -138,6 +142,11 @@ const DateSubDocSchema = new Schema<DateSubDoc>({
   year: { type: Number },
 });
 
+const BirthDateSubDocSchema = new Schema<BirthDateSubDoc>({
+  month: { type: Number },
+  day: { type: Number },
+});
+
 const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
   start: { type: DateSubDocSchema },
   end: { type: DateSubDocSchema },
@@ -178,7 +187,7 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   first_name: { type: String },
   last_name: { type: String },
   sub_title: { type: String },
-  birth_date: { type: String },
+  birth_date: BirthDateSubDocSchema,
   profile_picture: { type: String },
   summary: { type: String },
   location: LocationSubDocSchema,
