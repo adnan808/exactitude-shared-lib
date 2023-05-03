@@ -6,6 +6,7 @@ export class Education extends Document {
   logo: string;
   names: string[];
   country: Country;
+  region: string;
   created_at: Date;
   updated_at: Date;
 }
@@ -24,6 +25,7 @@ const educationSchema = new Schema(
     logo: String,
     names: [String],
     country: { type: Schema.Types.ObjectId, ref: 'Country' },
+    region: String,
     created_at: Date,
     updated_at: Date,
   },
