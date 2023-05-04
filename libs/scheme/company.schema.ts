@@ -7,6 +7,7 @@ export class Company extends Document {
   company_subtype: Schema.Types.ObjectId;
   logo: string;
   website_url: string;
+  email_format: string;
   names: string[];
   linkedin_url: string;
   is_in_house: boolean;
@@ -39,6 +40,7 @@ export const CompanySchema = new Schema<Company>(
     company_subtype: Schema.Types.ObjectId,
     logo: String,
     website_url: String,
+    email_format: String,
     names: [String],
     linkedin_url: String,
     is_in_house: Boolean,
