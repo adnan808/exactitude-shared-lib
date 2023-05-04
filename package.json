@@ -1,6 +1,6 @@
 {
   "name": "@dashdevs/exactitude-shared-lib",
-  "version": "0.0.63",
+  "version": "0.0.64",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
   "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
@@ -29,7 +29,7 @@
     "@aws-sdk/client-secrets-manager": "^3.272.0",
     "@aws-sdk/smithy-client": "^3.292.0",
     "@faker-js/faker": "^7.5.0",
-    "mongoose": "^6.10.3",
+    "mongoose": "^7.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.6.0",
     "typeorm": "^0.3.11",
