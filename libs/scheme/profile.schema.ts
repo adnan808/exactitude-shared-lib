@@ -44,8 +44,8 @@ export class PeriodSubDoc extends Document {
 
 export class EducationSubDoc extends Document {
   date: PeriodSubDoc;
-  school: Education;
-  degree: Degree;
+  school: string;
+  degree: string;
   field_of_study: string;
   is_hidden: boolean;
 }
@@ -155,8 +155,8 @@ const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
 
 const EducationSubDocSchema = new Schema<EducationSubDoc>({
   date: { type: PeriodSubDocSchema },
-  school: { type: Schema.Types.ObjectId, ref: 'Education', required: true },
-  degree: { type: Schema.Types.ObjectId, ref: 'Degree', required: true },
+  school: { type: String },
+  degree: { type: String },
   field_of_study: { type: String },
   is_hidden: { type: Boolean },
 });
@@ -199,16 +199,16 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   languages: LanguagesSubDocSchema,
   industry: { type: String },
   education: [EducationSubDocSchema],
-  patents: [String],
-  awards: [String],
-  certifications: [String],
-  organizations: [String],
-  projects: [String],
-  publications: [String],
-  courses: [String],
-  test_scores: [String],
+  patents: [{ type: Schema.Types.Mixed }],
+  awards: [{ type: Schema.Types.Mixed }],
+  certifications: [{ type: Schema.Types.Mixed }],
+  organizations: [{ type: Schema.Types.Mixed }],
+  projects: [{ type: Schema.Types.Mixed }],
+  publications: [{ type: Schema.Types.Mixed }],
+  courses: [{ type: Schema.Types.Mixed }],
+  test_scores: [{ type: Schema.Types.Mixed }],
   position_groups: [PositionGroupSubDocSchema],
-  volunteer_experiences: [String],
+  volunteer_experiences: [{ type: Schema.Types.Mixed }],
   skills: [String],
 });
 
