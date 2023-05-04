@@ -47,6 +47,7 @@ export class EducationSubDoc extends Document {
   school: Education;
   degree: Degree;
   field_of_study: string;
+  is_hidden: boolean;
 }
 
 export class CompanySubDoc extends Document {
@@ -157,6 +158,7 @@ const EducationSubDocSchema = new Schema<EducationSubDoc>({
   school: { type: Schema.Types.ObjectId, ref: 'Education', required: true },
   degree: { type: Schema.Types.ObjectId, ref: 'Degree', required: true },
   field_of_study: { type: String },
+  is_hidden: { type: Boolean },
 });
 
 const CompanySubDocSchema = new Schema<CompanySubDoc>({
