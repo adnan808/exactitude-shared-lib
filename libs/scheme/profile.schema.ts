@@ -68,6 +68,7 @@ export class ProfilePositionSubDoc extends Document {
 export class PositionGroupSubDoc extends Document {
   company: string;
   companyUrl: string;
+  companyLogo: string;
   date: PeriodSubDoc;
   profile_positions: ProfilePositionSubDoc[];
 }
@@ -179,6 +180,7 @@ const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
 const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
   company: { type: String },
   companyUrl: { type: String },
+  companyLogo: { type: String },
   date: { type: PeriodSubDocSchema },
   profile_positions: [ProfilePositionSubDocSchema],
 });
