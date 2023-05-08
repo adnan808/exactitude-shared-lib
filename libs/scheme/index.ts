@@ -17,3 +17,4 @@ export * from './suggested-team.schema';
 export * from './suggested-strategy.schema';
 export * from './tag.schema';
 export * from './scrapper-job.schema';
+export * from './end-user.schema';
