@@ -36,7 +36,7 @@ export const TYPES_FOR_SCRAPPER = [
 export enum DictionariesEnum {
   country = 'location.country',
   education = 'education[].school',
-  language = 'languages.profile_languages',
+  language = 'languages.profile_languages[].name',
   city = 'location.city',
   degree = 'education[].degree',
   company = 'position_groups[].company',

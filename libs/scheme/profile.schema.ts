@@ -1,5 +1,4 @@
 import { HydratedDocument, Schema, Document } from 'mongoose';
-import { Language } from './language.schema';
 import { Education } from './education.schema';
 import { Degree } from './degree.schema';
 import { Upload } from './upload.schema';
@@ -33,6 +32,11 @@ export class DateSubDoc extends Document {
   year: number;
 }
 
+export class BirthDateSubDoc extends Document {
+  month: number;
+  day: number;
+}
+
 export class PeriodSubDoc extends Document {
   start: DateSubDoc;
   end: DateSubDoc;
@@ -40,9 +44,10 @@ export class PeriodSubDoc extends Document {
 
 export class EducationSubDoc extends Document {
   date: PeriodSubDoc;
-  school: Education;
-  degree: Degree;
+  school: string;
+  degree: string;
   field_of_study: string;
+  is_hidden: boolean;
 }
 
 export class CompanySubDoc extends Document {
@@ -63,6 +68,7 @@ export class ProfilePositionSubDoc extends Document {
 export class PositionGroupSubDoc extends Document {
   company: string;
   companyUrl: string;
+  companyLogo: string;
   date: PeriodSubDoc;
   profile_positions: ProfilePositionSubDoc[];
 }
@@ -73,7 +79,7 @@ export class ProfileSubDoc extends Document {
   first_name: string;
   last_name: string;
   sub_title: string;
-  birth_date: string;
+  birth_date: BirthDateSubDoc;
   profile_picture: string;
   summary: string;
   location: LocationSubDoc;
@@ -138,6 +144,11 @@ const DateSubDocSchema = new Schema<DateSubDoc>({
   year: { type: Number },
 });
 
+const BirthDateSubDocSchema = new Schema<BirthDateSubDoc>({
+  month: { type: Number },
+  day: { type: Number },
+});
+
 const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
   start: { type: DateSubDocSchema },
   end: { type: DateSubDocSchema },
@@ -145,9 +156,10 @@ const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
 
 const EducationSubDocSchema = new Schema<EducationSubDoc>({
   date: { type: PeriodSubDocSchema },
-  school: { type: Schema.Types.ObjectId, ref: 'Education', required: true },
-  degree: { type: Schema.Types.ObjectId, ref: 'Degree', required: true },
+  school: { type: String },
+  degree: { type: String },
   field_of_study: { type: String },
+  is_hidden: { type: Boolean },
 });
 
 const CompanySubDocSchema = new Schema<CompanySubDoc>({
@@ -168,6 +180,7 @@ const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
 const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
   company: { type: String },
   companyUrl: { type: String },
+  companyLogo: { type: String },
   date: { type: PeriodSubDocSchema },
   profile_positions: [ProfilePositionSubDocSchema],
 });
@@ -178,7 +191,7 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   first_name: { type: String },
   last_name: { type: String },
   sub_title: { type: String },
-  birth_date: { type: String },
+  birth_date: BirthDateSubDocSchema,
   profile_picture: { type: String },
   summary: { type: String },
   location: LocationSubDocSchema,
@@ -188,16 +201,16 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   languages: LanguagesSubDocSchema,
   industry: { type: String },
   education: [EducationSubDocSchema],
-  patents: [String],
-  awards: [String],
-  certifications: [String],
-  organizations: [String],
-  projects: [String],
-  publications: [String],
-  courses: [String],
-  test_scores: [String],
+  patents: [{ type: Schema.Types.Mixed }],
+  awards: [{ type: Schema.Types.Mixed }],
+  certifications: [{ type: Schema.Types.Mixed }],
+  organizations: [{ type: Schema.Types.Mixed }],
+  projects: [{ type: Schema.Types.Mixed }],
+  publications: [{ type: Schema.Types.Mixed }],
+  courses: [{ type: Schema.Types.Mixed }],
+  test_scores: [{ type: Schema.Types.Mixed }],
   position_groups: [PositionGroupSubDocSchema],
-  volunteer_experiences: [String],
+  volunteer_experiences: [{ type: Schema.Types.Mixed }],
   skills: [String],
 });
 
