@@ -1,4 +1,4 @@
-import { HydratedDocument, Schema } from "mongoose";
+import { HydratedDocument, Document, Schema } from "mongoose";
 
 export class EndUser extends Document {
   sub: string;
