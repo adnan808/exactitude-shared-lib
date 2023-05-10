@@ -6,4 +6,5 @@ export enum MovesStatusesEnum {
   SUBMITTED,
   INDEX_ERROR_AND_NEED_CHECK,
   UNVERIFIED,
+  REJECTED,
 }
