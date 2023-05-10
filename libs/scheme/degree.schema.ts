@@ -18,7 +18,7 @@ const options = {
 const degreeSchema = new Schema(
   {
     degree_names: [String],
-    degree_name: String,
+    degree_name: { type: String, unique: true },
     created_at: Date,
     updated_at: Date,
   },
