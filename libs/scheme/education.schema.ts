@@ -21,7 +21,7 @@ const options = {
 
 const educationSchema = new Schema(
   {
-    name: String,
+    name: { type: String, unique: true },
     logo: String,
     names: [String],
     country: { type: Schema.Types.ObjectId, ref: 'Country' },
