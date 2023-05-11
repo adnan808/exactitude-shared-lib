@@ -119,7 +119,7 @@ export class ProfileSubDoc extends Document {
   volunteer_experiences: [];
   skills: [];
   suggestedTeam: SuggestedTeamSubDoc[];
-  suggestedStrategy: [];
+  suggestedStrategy: SuggestedStrategySubDoc[];
   suggested_geography: SuggestedGeography;
   suggested_coverage: SuggestedCoverage;
   gender: Gender;
