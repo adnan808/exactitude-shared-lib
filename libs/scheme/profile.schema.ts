@@ -2,6 +2,11 @@ import { HydratedDocument, Schema, Document } from 'mongoose';
 import { Education } from './education.schema';
 import { Degree } from './degree.schema';
 import { Upload } from './upload.schema';
+import { Gender } from './gender.schema';
+import { SuggestedCoverage } from './suggested-coverage.schema';
+import { SuggestedGeography } from './suggested-geography.schema';
+import { SuggestedTeam } from './suggested-team.schema';
+import { Substrategy, SuggestedStrategy } from './suggested-strategy.schema';
 
 export class LocationSubDoc extends Document {
   country: string;
@@ -73,6 +78,19 @@ export class PositionGroupSubDoc extends Document {
   profile_positions: ProfilePositionSubDoc[];
 }
 
+export class SuggestedTeamSubDoc extends Document {
+  team: SuggestedTeam;
+}
+
+export class SuggestedStrategySubDoc extends Document {
+  strategy: SuggestedStrategy;
+  subStrategy: SubstrategySubDoc[]
+}
+
+export class SubstrategySubDoc extends Document {
+  strategy: Substrategy
+}
+
 export class ProfileSubDoc extends Document {
   entity_urn: string;
   object_urn: string;
@@ -100,6 +118,11 @@ export class ProfileSubDoc extends Document {
   position_groups: PositionGroupSubDoc[];
   volunteer_experiences: [];
   skills: [];
+  suggestedTeam: SuggestedTeamSubDoc[];
+  suggestedStrategy: SuggestedStrategySubDoc[];
+  suggested_geography: SuggestedGeography;
+  suggested_coverage: SuggestedCoverage;
+  gender: Gender;
 }
 
 class Profile extends Document {
@@ -112,6 +135,19 @@ class Profile extends Document {
   profile: ProfileSubDoc;
   is_archived: boolean;
 }
+
+const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
+  team: {type: Schema.Types.ObjectId, ref: 'SuggestedTeam'}
+})
+
+const SubstrategySubDocShema = new Schema<SubstrategySubDoc>({
+  strategy: [{ type: Schema.Types.ObjectId, ref: 'Substrategy' }]
+})
+
+const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
+  strategy: {type: Schema.Types.ObjectId, ref: 'SuggestedStrategy'},
+  subStrategy: [SubstrategySubDocShema]
+})
 
 const LocationSubDocSchema = new Schema<LocationSubDoc>({
   country: { type: String },
@@ -212,6 +248,11 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   position_groups: [PositionGroupSubDocSchema],
   volunteer_experiences: [{ type: Schema.Types.Mixed }],
   skills: [String],
+  suggestedTeam: [SuggestedTeamSubDocSchema],
+  suggestedStrategy: [SuggestedStrategySubDocSchema],
+  suggested_geography: { type: Schema.Types.ObjectId, ref: 'SuggestedGeography' },
+  suggested_coverage: { type: Schema.Types.ObjectId, ref: 'SuggestedCoverage' },
+  gender: { type: Schema.Types.ObjectId, ref: 'Gender' },
 });
 
 const ProfileSchema = new Schema<Profile>({
