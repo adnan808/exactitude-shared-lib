@@ -123,6 +123,9 @@ export class ProfileSubDoc extends Document {
   suggested_geography: SuggestedGeography;
   suggested_coverage: SuggestedCoverage;
   gender: Gender;
+  start_first_sellside: string;
+  start_current_employeer: string;
+  start_first_buyside: string;
 }
 
 class Profile extends Document {
@@ -253,6 +256,9 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   suggested_geography: { type: Schema.Types.ObjectId, ref: 'SuggestedGeography' },
   suggested_coverage: { type: Schema.Types.ObjectId, ref: 'SuggestedCoverage' },
   gender: { type: Schema.Types.ObjectId, ref: 'Gender' },
+  start_first_sellside: { type: String },
+  start_current_employeer: { type: String },
+  start_first_buyside: { type: String },
 });
 
 const ProfileSchema = new Schema<Profile>({
