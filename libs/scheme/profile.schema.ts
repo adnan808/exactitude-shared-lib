@@ -1,5 +1,10 @@
 import { HydratedDocument, Schema, Document } from 'mongoose';
 import { Upload } from './upload.schema';
+import { Gender } from './gender.schema';
+import { SuggestedCoverage } from './suggested-coverage.schema';
+import { SuggestedGeography } from './suggested-geography.schema';
+import { SuggestedTeam } from './suggested-team.schema';
+import { Substrategy, SuggestedStrategy } from './suggested-strategy.schema';
 
 export class LocationSubDoc extends Document {
   country: string;
@@ -72,16 +77,16 @@ export class PositionGroupSubDoc extends Document {
 }
 
 export class SuggestedTeamSubDoc extends Document {
-  team: string;
+  team: SuggestedTeam;
 }
 
 export class SuggestedStrategySubDoc extends Document {
-  strategy: string;
-  subStrategy: SubstrategySubDoc[];
+  strategy: SuggestedStrategy;
+  subStrategy: SubstrategySubDoc[]
 }
 
 export class SubstrategySubDoc extends Document {
-  strategy: string;
+  strategy: Substrategy
 }
 
 export class ProfileSubDoc extends Document {
@@ -114,9 +119,9 @@ export class ProfileSubDoc extends Document {
   skills: [];
   suggestedTeam: SuggestedTeamSubDoc[];
   suggestedStrategy: SuggestedStrategySubDoc[];
-  suggested_geography: string;
-  suggested_coverage: string;
-  gender: string;
+  suggested_geography: SuggestedGeography;
+  suggested_coverage: SuggestedCoverage;
+  gender: Gender;
   start_first_sellside: string;
   start_current_employeer: string;
   start_first_buyside: string;
@@ -134,17 +139,17 @@ class Profile extends Document {
 }
 
 const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
-  team: { type: String },
-});
+  team: {type: Schema.Types.ObjectId, ref: 'SuggestedTeam'}
+})
 
 const SubstrategySubDocShema = new Schema<SubstrategySubDoc>({
-  strategy: [{ type: String }],
-});
+  strategy: [{ type: Schema.Types.ObjectId, ref: 'Substrategy' }]
+})
 
 const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
-  strategy: { type: String },
-  subStrategy: [SubstrategySubDocShema],
-});
+  strategy: {type: Schema.Types.ObjectId, ref: 'SuggestedStrategy'},
+  subStrategy: [SubstrategySubDocShema]
+})
 
 const LocationSubDocSchema = new Schema<LocationSubDoc>({
   country: { type: String },
@@ -248,9 +253,9 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   skills: [String],
   suggestedTeam: [SuggestedTeamSubDocSchema],
   suggestedStrategy: [SuggestedStrategySubDocSchema],
-  suggested_geography: { type: String },
-  suggested_coverage: { type: String },
-  gender: { type: String },
+  suggested_geography: { type: Schema.Types.ObjectId, ref: 'SuggestedGeography' },
+  suggested_coverage: { type: Schema.Types.ObjectId, ref: 'SuggestedCoverage' },
+  gender: { type: Schema.Types.ObjectId, ref: 'Gender' },
   start_first_sellside: { type: String },
   start_current_employeer: { type: String },
   start_first_buyside: { type: String },
