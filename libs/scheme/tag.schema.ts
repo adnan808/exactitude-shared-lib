@@ -1,9 +1,9 @@
 import { Document, Schema, HydratedDocument } from 'mongoose';
-import { User } from './user.schema';
 import { Profile } from './profile.schema';
+import { EndUser } from './end-user.schema';
 
 export class Tag extends Document {
-  user: User;
+  user: EndUser;
   profiles: Profile[];
   name: string;
   created_at: Date;
