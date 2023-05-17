@@ -10,7 +10,7 @@ export class Tag extends Document {
   updated_at: Date;
 }
 
-const TagSchema = new Schema<Tag>(
+export const TagSchema = new Schema<Tag>(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     profiles: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
