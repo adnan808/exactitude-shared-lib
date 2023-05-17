@@ -12,7 +12,7 @@ export class Tag extends Document {
 
 export const TagSchema = new Schema<Tag>(
   {
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    user: { type: Schema.Types.ObjectId, ref: 'EndUser' },
     profiles: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
     name: String,
     created_at: Date,
