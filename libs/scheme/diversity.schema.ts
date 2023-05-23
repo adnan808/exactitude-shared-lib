@@ -8,7 +8,7 @@ export class Diversity extends Document {
 
 const diversitySchema = new Schema(
   {
-    name: String,
+    name: { type: String, unique: true },
     created_at: Date,
     updated_at: Date,
   },

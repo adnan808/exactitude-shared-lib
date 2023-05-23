@@ -8,7 +8,7 @@ export class SuggestedCoverage extends Document {
 
 export const SuggestedCoverageSchema = new Schema<SuggestedCoverage>(
   {
-    name: String,
+    name: { type: String, unique: true },
     created_at: Date,
     updated_at: Date,
   },

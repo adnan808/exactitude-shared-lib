@@ -28,7 +28,7 @@ export class CompanyType extends Document {
 
 export const CompanyTypeSchema = new Schema<CompanyType>(
   {
-    name: String,
+    name: { type: String, unique: true },
     subtypes: [CompanySubTypeSchema],
     created_at: Date,
     updated_at: Date,

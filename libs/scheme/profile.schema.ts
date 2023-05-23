@@ -82,11 +82,11 @@ export class SuggestedTeamSubDoc extends Document {
 
 export class SuggestedStrategySubDoc extends Document {
   strategy: SuggestedStrategy;
-  subStrategy: SubstrategySubDoc[]
+  subStrategy: SubstrategySubDoc[];
 }
 
 export class SubstrategySubDoc extends Document {
-  strategy: Substrategy
+  strategy: Substrategy;
 }
 
 export class ProfileSubDoc extends Document {
@@ -139,17 +139,17 @@ class Profile extends Document {
 }
 
 const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
-  team: {type: Schema.Types.ObjectId, ref: 'SuggestedTeam'}
-})
+  team: { type: Schema.Types.ObjectId, ref: 'SuggestedTeam' },
+});
 
 const SubstrategySubDocShema = new Schema<SubstrategySubDoc>({
-  strategy: [{ type: Schema.Types.ObjectId, ref: 'Substrategy' }]
-})
+  strategy: [{ type: Schema.Types.ObjectId, ref: 'Substrategy' }],
+});
 
 const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
-  strategy: {type: Schema.Types.ObjectId, ref: 'SuggestedStrategy'},
-  subStrategy: [SubstrategySubDocShema]
-})
+  strategy: { type: Schema.Types.ObjectId, ref: 'SuggestedStrategy' },
+  subStrategy: [SubstrategySubDocShema],
+});
 
 const LocationSubDocSchema = new Schema<LocationSubDoc>({
   country: { type: String },
@@ -253,7 +253,10 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   skills: [String],
   suggestedTeam: [SuggestedTeamSubDocSchema],
   suggestedStrategy: [SuggestedStrategySubDocSchema],
-  suggested_geography: { type: Schema.Types.ObjectId, ref: 'SuggestedGeography' },
+  suggested_geography: {
+    type: Schema.Types.ObjectId,
+    ref: 'SuggestedGeography',
+  },
   suggested_coverage: { type: Schema.Types.ObjectId, ref: 'SuggestedCoverage' },
   gender: { type: Schema.Types.ObjectId, ref: 'Gender' },
   start_first_sellside: { type: String },

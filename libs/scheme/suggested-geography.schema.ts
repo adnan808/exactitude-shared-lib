@@ -8,7 +8,7 @@ export class SuggestedGeography extends Document {
 
 export const SuggestedGeographySchema = new Schema<SuggestedGeography>(
   {
-    name: String,
+    name: { type: String, unique: true },
     created_at: Date,
     updated_at: Date,
   },
