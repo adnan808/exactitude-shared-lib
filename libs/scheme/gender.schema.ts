@@ -8,7 +8,7 @@ export class Gender extends Document {
 
 export const GenderSchema = new Schema<Gender>(
   {
-    name: String,
+    name: { type: String, unique: true },
     created_at: Date,
     updated_at: Date,
   },

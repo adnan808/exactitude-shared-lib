@@ -7,12 +7,15 @@ export class City extends Document {
   created_at: Date;
   updated_at: Date;
 }
-export const CitySchema = new Schema({
-  name: String,
-  names: [String],
-  created_at: Date,
-  updated_at: Date,
-}, {_id: true});
+export const CitySchema = new Schema(
+  {
+    name: String,
+    names: [String],
+    created_at: Date,
+    updated_at: Date,
+  },
+  { _id: true },
+);
 export type CityDocument = HydratedDocument<Country>;
 
 const options = {
@@ -33,7 +36,7 @@ export class Country extends Document {
 
 export const CountrySchema = new Schema<Country>(
   {
-    name: String,
+    name: { type: String, unique: true },
     names: [String],
     languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
     cities: [CitySchema],
