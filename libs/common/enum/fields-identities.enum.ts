@@ -38,6 +38,7 @@ export enum DictionariesEnum {
   country = 'location.country',
   education = 'education[].school',
   language = 'languages.profile_languages[].name',
+  nativeLanguage = "languages.primary_locale.language",
   city = 'location.city',
   degree = 'education[].degree',
   company = 'position_groups[].company',
