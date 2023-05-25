@@ -17,8 +17,8 @@ const options = {
 
 const languageSchema = new Schema(
   {
-    name: { type: String, unique: true },
-    names: [String],
+    name: { type: String, unique: true, index: true },
+    names: [{ type: String, unique: true, index: true }],
     proficiency: String,
     created_at: Date,
     updated_at: Date,
