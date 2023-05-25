@@ -8,7 +8,7 @@ export class SuggestedTeam extends Document {
 
 export const SuggestedTeamSchema = new Schema<SuggestedTeam>(
   {
-    name: { type: String, unique: true },
+    name: { type: String, unique: true, index: true },
     created_at: Date,
     updated_at: Date,
   },

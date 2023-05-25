@@ -35,13 +35,13 @@ const options = {
 
 export const CompanySchema = new Schema<Company>(
   {
-    name: String,
+    name: { type: String, unique: true, index: true },
     company_type: { type: Schema.Types.ObjectId, ref: 'CompanyType' },
     company_subtype: Schema.Types.ObjectId,
     logo: String,
     website_url: String,
     email_format: String,
-    names: [String],
+    names: [{ type: String, unique: true, index: true }],
     linkedin_url: String,
     is_in_house: Boolean,
     created_at: Date,

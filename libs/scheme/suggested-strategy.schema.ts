@@ -7,7 +7,7 @@ export class Substrategy extends Document {
 }
 
 const SubstrategySchema = new Schema<Substrategy>({
-  name: String,
+  name: { type: String, unique: true, index: true },
   created_at: Date,
   updated_at: Date,
 });
@@ -21,7 +21,7 @@ export class SuggestedStrategy extends Document {
 
 export const SuggestedStrategySchema = new Schema<SuggestedStrategy>(
   {
-    name: { type: String, unique: true },
+    name: { type: String, unique: true, index: true },
     substrategies: [SubstrategySchema],
     created_at: Date,
     updated_at: Date,

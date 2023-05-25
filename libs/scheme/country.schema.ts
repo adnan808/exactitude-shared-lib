@@ -9,7 +9,7 @@ export class City extends Document {
 }
 export const CitySchema = new Schema(
   {
-    name: String,
+    name: { type: String, unique: true, index: true },
     names: [String],
     created_at: Date,
     updated_at: Date,
@@ -36,7 +36,7 @@ export class Country extends Document {
 
 export const CountrySchema = new Schema<Country>(
   {
-    name: { type: String, unique: true },
+    name: { type: String, unique: true, index: true },
     names: [String],
     languages: [{ type: Schema.Types.ObjectId, ref: 'Language' }],
     cities: [CitySchema],

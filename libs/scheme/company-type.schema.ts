@@ -7,7 +7,7 @@ export class CompanySubType extends Document {
 
 export const CompanySubTypeSchema = new Schema({
   _id: String,
-  name: String,
+  name: { type: String, unique: true, index: true },
 });
 export type CompanySubTypeDocument = HydratedDocument<CompanyType>;
 
@@ -28,7 +28,7 @@ export class CompanyType extends Document {
 
 export const CompanyTypeSchema = new Schema<CompanyType>(
   {
-    name: { type: String, unique: true },
+    name: { type: String, unique: true, index: true },
     subtypes: [CompanySubTypeSchema],
     created_at: Date,
     updated_at: Date,
