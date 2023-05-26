@@ -41,13 +41,25 @@ export const CompanySchema = new Schema<Company>(
     logo: String,
     website_url: String,
     email_format: String,
-    names: [{ type: String, unique: true, index: true }],
+    names: [String],
     linkedin_url: String,
     is_in_house: Boolean,
     created_at: Date,
     updated_at: Date,
   },
   options,
+);
+
+CompanySchema.index(
+  { names: 1 },
+  {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    unique: true,
+    partialFilterExpression: {
+      names: { $type: 'string' },
+    },
+  },
 );
 
 export type CompanyDocument = HydratedDocument<Company>;
