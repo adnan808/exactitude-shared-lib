@@ -139,15 +139,15 @@ class Profile extends Document {
 }
 
 const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
-  team: { type: Schema.Types.ObjectId, ref: 'SuggestedTeam' },
+  team: { type: String },
 });
 
 const SubstrategySubDocShema = new Schema<SubstrategySubDoc>({
-  strategy: [{ type: Schema.Types.ObjectId, ref: 'Substrategy' }],
+  strategy: [{ type: String }],
 });
 
 const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
-  strategy: { type: Schema.Types.ObjectId, ref: 'SuggestedStrategy' },
+  strategy: { type: String },
   subStrategy: [SubstrategySubDocShema],
 });
 
@@ -253,12 +253,9 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
   skills: [String],
   suggestedTeam: [SuggestedTeamSubDocSchema],
   suggestedStrategy: [SuggestedStrategySubDocSchema],
-  suggested_geography: {
-    type: Schema.Types.ObjectId,
-    ref: 'SuggestedGeography',
-  },
-  suggested_coverage: { type: Schema.Types.ObjectId, ref: 'SuggestedCoverage' },
-  gender: { type: Schema.Types.ObjectId, ref: 'Gender' },
+  suggested_geography: { type: String },
+  suggested_coverage: { type: String },
+  gender: { type: String },
   start_first_sellside: { type: String },
   start_current_employeer: { type: String },
   start_first_buyside: { type: String },
