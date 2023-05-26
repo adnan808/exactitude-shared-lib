@@ -23,13 +23,25 @@ const educationSchema = new Schema(
   {
     name: { type: String, unique: true, index: true },
     logo: String,
-    names: [{ type: String, unique: true, index: true }],
+    names: [String],
     country: { type: Schema.Types.ObjectId, ref: 'Country' },
     region: String,
     created_at: Date,
     updated_at: Date,
   },
   options,
+);
+
+educationSchema.index(
+  { names: 1 },
+  {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    unique: true,
+    partialFilterExpression: {
+      names: { $type: 'string' },
+    },
+  },
 );
 
 export const EducationSchema = educationSchema;
