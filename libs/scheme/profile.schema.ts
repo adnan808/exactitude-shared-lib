@@ -262,13 +262,19 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
 });
 
 const ProfileSchema = new Schema<Profile>({
-  upload: { type: Schema.Types.ObjectId, ref: 'Upload', required: true },
+  upload: {
+    type: Schema.Types.ObjectId,
+    ref: 'Upload',
+    required: true,
+    index: true,
+  },
   profile_id: { type: String, required: true, unique: true },
   edit_suggestions: [],
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: null },
   scraped_at: Date,
   profile: ProfileSubDocSchema,
+  is_archived: { type: Boolean, index: true },
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;

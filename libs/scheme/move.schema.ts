@@ -37,8 +37,9 @@ export const MoveSchema = new Schema(
     scrapper_job: {
       type: Schema.Types.ObjectId,
       ref: 'ScrapperJob',
+      index: true,
     },
-    profile: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    profile: { type: Schema.Types.ObjectId, ref: 'Profile', index: true },
     field_identity: {
       type: Schema.Types.ObjectId,
       ref: 'FieldsIdentity',
@@ -47,7 +48,7 @@ export const MoveSchema = new Schema(
     old_value: String,
     new_value: String,
     array_positions: String,
-    status: Number,
+    status: { type: Number, index: true },
     status_changes: [
       {
         user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -57,7 +58,7 @@ export const MoveSchema = new Schema(
     ],
     implemented: { type: Boolean, required: true, default: false },
     implemented_at: Date,
-    created_at: Date,
+    created_at: { type: Date, index: true },
     updated_at: Date,
   },
   options,

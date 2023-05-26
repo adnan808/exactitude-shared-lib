@@ -21,7 +21,7 @@ const options = {
 
 const userSchema = new Schema(
   {
-    sub: { type: String, required: true, unique: true },
+    sub: { type: String, required: true, unique: true, index: true },
     email: { type: String, required: true, unique: true },
     firstName: String,
     lastName: String,
