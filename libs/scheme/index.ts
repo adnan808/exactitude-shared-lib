@@ -18,3 +18,4 @@ export * from './suggested-strategy.schema';
 export * from './tag.schema';
 export * from './scrapper-job.schema';
 export * from './end-user.schema';
+export * from './job-title.schema';
