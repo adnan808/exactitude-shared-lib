@@ -6,7 +6,7 @@ export class JobTitle extends Document {
   updated_at: Date;
 }
 
-export const GenderSchema = new Schema<JobTitle>(
+export const JobTitleSchema = new Schema<JobTitle>(
   {
     name: { type: String, unique: true, index: true },
     created_at: Date,
