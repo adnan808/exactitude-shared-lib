@@ -1,4 +1,4 @@
-import { HydratedDocument, Document, Schema } from "mongoose";
+import { HydratedDocument, Document, Schema } from 'mongoose';
 
 export class JobTitle extends Document {
   name: string;
