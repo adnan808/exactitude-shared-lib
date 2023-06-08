@@ -77,16 +77,16 @@ export class PositionGroupSubDoc extends Document {
 }
 
 export class SuggestedTeamSubDoc extends Document {
-  team: SuggestedTeam;
+  team: string;
 }
 
 export class SuggestedStrategySubDoc extends Document {
-  strategy: SuggestedStrategy;
+  strategy: string;
   subStrategy: SubstrategySubDoc[];
 }
 
 export class SubstrategySubDoc extends Document {
-  strategy: Substrategy;
+  strategy: string;
 }
 
 export class ProfileSubDoc extends Document {
@@ -119,8 +119,8 @@ export class ProfileSubDoc extends Document {
   skills: [];
   suggestedTeam: SuggestedTeamSubDoc[];
   suggestedStrategy: SuggestedStrategySubDoc[];
-  suggested_geography: SuggestedGeography;
-  suggested_coverage: SuggestedCoverage;
+  suggested_geography: string;
+  suggested_coverage: string;
   gender: Gender;
   start_first_sellside: string;
   start_current_employeer: string;

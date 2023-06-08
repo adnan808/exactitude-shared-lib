@@ -64,4 +64,13 @@ export const MoveSchema = new Schema(
   options,
 );
 
+MoveSchema.index(
+  { profile: 1, field_identity: 1, status: 1, array_positions: 1 },
+  {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    unique: true,
+  },
+);
+
 export type MoveDocument = HydratedDocument<Move>;
