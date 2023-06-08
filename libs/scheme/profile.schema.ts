@@ -32,6 +32,7 @@ export class LanguagesSubDoc extends Document {
 
 export class DateSubDoc extends Document {
   month: number;
+  day: number;
   year: number;
 }
 
@@ -151,46 +152,68 @@ const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
   subStrategy: [SubstrategySubDocShema],
 });
 
-const LocationSubDocSchema = new Schema<LocationSubDoc>({
-  country: { type: String },
-  short: { type: String },
-  city: { type: String },
-  state: { type: String },
-  default: { type: String },
-});
-
-const LocalSubDocSchema = new Schema<LocalSubDoc>({
-  country: { type: String },
-  language: { type: String },
-});
-
-const ProfileLanguageSubDocSchema = new Schema<ProfileLanguageSubDoc>({
-  name: { type: String },
-  proficiency: { type: String },
-});
-
-const LanguagesSubDocSchema = new Schema<LanguagesSubDoc>({
-  primary_locale: { type: LocalSubDocSchema },
-  supported_locales: { type: [LocalSubDocSchema] },
-  profile_languages: {
-    type: [ProfileLanguageSubDocSchema],
+const LocationSubDocSchema = new Schema<LocationSubDoc>(
+  {
+    country: { type: String },
+    short: { type: String },
+    city: { type: String },
+    state: { type: String },
+    default: { type: String },
   },
-});
+  { _id: false },
+);
 
-const DateSubDocSchema = new Schema<DateSubDoc>({
-  month: { type: Number },
-  year: { type: Number },
-});
+const LocalSubDocSchema = new Schema<LocalSubDoc>(
+  {
+    country: { type: String },
+    language: { type: String },
+  },
+  { _id: false },
+);
 
-const BirthDateSubDocSchema = new Schema<BirthDateSubDoc>({
-  month: { type: Number },
-  day: { type: Number },
-});
+const ProfileLanguageSubDocSchema = new Schema<ProfileLanguageSubDoc>(
+  {
+    name: { type: String },
+    proficiency: { type: String },
+  },
+  { _id: false },
+);
 
-const PeriodSubDocSchema = new Schema<PeriodSubDoc>({
-  start: { type: DateSubDocSchema },
-  end: { type: DateSubDocSchema },
-});
+const LanguagesSubDocSchema = new Schema<LanguagesSubDoc>(
+  {
+    primary_locale: { type: LocalSubDocSchema },
+    supported_locales: { type: [LocalSubDocSchema] },
+    profile_languages: {
+      type: [ProfileLanguageSubDocSchema],
+    },
+  },
+  { _id: false },
+);
+
+const DateSubDocSchema = new Schema<DateSubDoc>(
+  {
+    month: { type: Number },
+    day: { type: Number },
+    year: { type: Number },
+  },
+  { _id: false },
+);
+
+const BirthDateSubDocSchema = new Schema<BirthDateSubDoc>(
+  {
+    month: { type: Number },
+    day: { type: Number },
+  },
+  { _id: false },
+);
+
+const PeriodSubDocSchema = new Schema<PeriodSubDoc>(
+  {
+    start: { type: DateSubDocSchema },
+    end: { type: DateSubDocSchema },
+  },
+  { _id: false },
+);
 
 const EducationSubDocSchema = new Schema<EducationSubDoc>({
   date: { type: PeriodSubDocSchema },
@@ -207,13 +230,16 @@ const CompanySubDocSchema = new Schema<CompanySubDoc>({
   employees: { type: DateSubDocSchema },
 });
 
-const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>({
-  location: { type: String },
-  date: { type: PeriodSubDocSchema },
-  company: { type: String },
-  description: { type: String },
-  title: { type: String },
-});
+const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>(
+  {
+    location: { type: String },
+    date: { type: PeriodSubDocSchema },
+    company: { type: String },
+    description: { type: String },
+    title: { type: String },
+  },
+  { _id: false },
+);
 
 const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
   company: { type: String },
@@ -223,43 +249,46 @@ const PositionGroupSubDocSchema = new Schema<PositionGroupSubDoc>({
   profile_positions: [ProfilePositionSubDocSchema],
 });
 
-const ProfileSubDocSchema = new Schema<ProfileSubDoc>({
-  entity_urn: { type: String },
-  object_urn: { type: String },
-  first_name: { type: String },
-  last_name: { type: String },
-  sub_title: { type: String },
-  birth_date: BirthDateSubDocSchema,
-  profile_picture: { type: String },
-  summary: { type: String },
-  website_link: { type: String },
-  location: LocationSubDocSchema,
-  premium: { type: Boolean },
-  influencer: { type: Boolean },
-  treasury_media: [],
-  languages: LanguagesSubDocSchema,
-  industry: { type: String },
-  education: [EducationSubDocSchema],
-  patents: [{ type: Schema.Types.Mixed }],
-  awards: [{ type: Schema.Types.Mixed }],
-  certifications: [{ type: Schema.Types.Mixed }],
-  organizations: [{ type: Schema.Types.Mixed }],
-  projects: [{ type: Schema.Types.Mixed }],
-  publications: [{ type: Schema.Types.Mixed }],
-  courses: [{ type: Schema.Types.Mixed }],
-  test_scores: [{ type: Schema.Types.Mixed }],
-  position_groups: [PositionGroupSubDocSchema],
-  volunteer_experiences: [{ type: Schema.Types.Mixed }],
-  skills: [String],
-  suggestedTeam: [SuggestedTeamSubDocSchema],
-  suggestedStrategy: [SuggestedStrategySubDocSchema],
-  suggested_geography: { type: String },
-  suggested_coverage: { type: String },
-  gender: { type: String },
-  start_first_sellside: { type: String },
-  start_current_employeer: { type: String },
-  start_first_buyside: { type: String },
-});
+const ProfileSubDocSchema = new Schema<ProfileSubDoc>(
+  {
+    entity_urn: { type: String },
+    object_urn: { type: String },
+    first_name: { type: String },
+    last_name: { type: String },
+    sub_title: { type: String },
+    birth_date: BirthDateSubDocSchema,
+    profile_picture: { type: String },
+    summary: { type: String },
+    website_link: { type: String },
+    location: LocationSubDocSchema,
+    premium: { type: Boolean },
+    influencer: { type: Boolean },
+    treasury_media: [],
+    languages: LanguagesSubDocSchema,
+    industry: { type: String },
+    education: [EducationSubDocSchema],
+    patents: [{ type: Schema.Types.Mixed }],
+    awards: [{ type: Schema.Types.Mixed }],
+    certifications: [{ type: Schema.Types.Mixed }],
+    organizations: [{ type: Schema.Types.Mixed }],
+    projects: [{ type: Schema.Types.Mixed }],
+    publications: [{ type: Schema.Types.Mixed }],
+    courses: [{ type: Schema.Types.Mixed }],
+    test_scores: [{ type: Schema.Types.Mixed }],
+    position_groups: [PositionGroupSubDocSchema],
+    volunteer_experiences: [{ type: Schema.Types.Mixed }],
+    skills: [String],
+    suggestedTeam: [SuggestedTeamSubDocSchema],
+    suggestedStrategy: [SuggestedStrategySubDocSchema],
+    suggested_geography: { type: String },
+    suggested_coverage: { type: String },
+    gender: { type: String },
+    start_first_sellside: { type: String },
+    start_current_employeer: { type: String },
+    start_first_buyside: { type: String },
+  },
+  { _id: false },
+);
 
 const ProfileSchema = new Schema<Profile>({
   upload: {
