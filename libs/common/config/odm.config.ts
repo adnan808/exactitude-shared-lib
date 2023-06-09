@@ -8,9 +8,6 @@ async function buildWithSecrets(odmConfig) {
   odmConfig.username ??= dbSecrets.username;
   odmConfig.password ??= dbSecrets.password;
   odmConfig.database ??= dbSecrets.dbname;
-  console.log(
-    `mongodb+srv://${odmConfig.username}:${odmConfig.password}@${odmConfig.host}/${odmConfig.database}?retryWrites=true&w=majority`,
-  );
   return `mongodb+srv://${odmConfig.username}:${odmConfig.password}@${odmConfig.host}/${odmConfig.database}?retryWrites=true&w=majority`;
 }
 
