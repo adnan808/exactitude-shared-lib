@@ -51,8 +51,10 @@ function getElementForArraysInObject(
     return currentResult;
   }
   const currentIndex = splittedPositions.shift();
+  const nextObj =
+    currentResult !== undefined ? currentResult[currentIndex] : undefined;
   return getElementForArraysInObject(
-    currentResult[currentIndex],
+    nextObj,
     splittedReference,
     splittedPositions,
   );
