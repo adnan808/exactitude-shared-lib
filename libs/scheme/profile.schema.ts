@@ -144,7 +144,7 @@ const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
 });
 
 const SubstrategySubDocShema = new Schema<SubstrategySubDoc>({
-  strategy: [{ type: String }],
+  strategy: { type: String },
 });
 
 const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
