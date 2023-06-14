@@ -67,6 +67,7 @@ export class ProfilePositionSubDoc extends Document {
   company: string;
   description: string;
   title: string;
+  employment_type: string;
 }
 
 export class PositionGroupSubDoc extends Document {
@@ -237,6 +238,7 @@ const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>(
     company: { type: String },
     description: { type: String },
     title: { type: String },
+    employment_type: { type: String },
   },
   { _id: false },
 );
