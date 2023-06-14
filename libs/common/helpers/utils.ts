@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { Move, PeriodSubDoc } from '../../scheme';
+import { DateSubDoc, Move, PeriodSubDoc } from '../../scheme';
 
 const ARRAY_SPLIT_SYMBOL = '[].';
 const POSITIONS_SPLIT_SYMBOL = ',';
@@ -74,12 +74,12 @@ export function filterMovesByReference(
 }
 
 export function firstStartsBefore(
-  dateFirst: PeriodSubDoc,
-  dateSecond: PeriodSubDoc,
+  dateFirst: DateSubDoc,
+  dateSecond: DateSubDoc,
 ) {
-  return dateFirst.start.year === dateSecond.end.year
-    ? biggerIfNotNull(dateFirst.start.month, dateSecond.end.month)
-    : biggerIfNotNull(dateFirst.start.year, dateSecond.end.year);
+  return dateFirst.year === dateSecond.year
+    ? biggerIfNotNull(dateFirst.month, dateSecond.month)
+    : biggerIfNotNull(dateFirst.year, dateSecond.year);
 }
 
 export function biggerIfNotNull(firstElement: number, secondElement: number) {
