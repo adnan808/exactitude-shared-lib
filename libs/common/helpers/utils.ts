@@ -73,13 +73,16 @@ export function filterMovesByReference(
   );
 }
 
-function firstStartsBefore(dateFirst: PeriodSubDoc, dateSecond: PeriodSubDoc) {
+export function firstStartsBefore(
+  dateFirst: PeriodSubDoc,
+  dateSecond: PeriodSubDoc,
+) {
   return dateFirst.start.year === dateSecond.end.year
     ? biggerIfNotNull(dateFirst.start.month, dateSecond.end.month)
     : biggerIfNotNull(dateFirst.start.year, dateSecond.end.year);
 }
 
-function biggerIfNotNull(firstElement: number, secondElement: number) {
+export function biggerIfNotNull(firstElement: number, secondElement: number) {
   if (firstElement === null) {
     return false;
   }
