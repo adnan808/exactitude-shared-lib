@@ -1,4 +1,5 @@
 import { HydratedDocument, Schema } from 'mongoose';
+import { IdentitiesReferenceEnum } from '../common/enum';
 
 const options = {
   timestamps: {
@@ -10,7 +11,7 @@ const options = {
 
 export class FieldsIdentity {
   _id: string;
-  field_reference: string;
+  field_reference: IdentitiesReferenceEnum;
   field_external_reference: string;
   journey_type: number;
   index_schema: string;
