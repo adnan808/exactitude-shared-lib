@@ -1,12 +1,12 @@
 import { HydratedDocument, Document, Schema } from 'mongoose';
-import { Country } from './country.schema';
+import { City, CitySchema, Country } from './country.schema';
 
 export class Education extends Document {
   name: string;
   logo: string;
   names: string[];
   country: Country;
-  city: string;
+  city: City;
   region: string;
   is_hideen: boolean;
   created_at: Date;
@@ -27,7 +27,7 @@ const educationSchema = new Schema(
     logo: String,
     names: [String],
     country: { type: Schema.Types.ObjectId, ref: 'Country' },
-    city: String,
+    city: CitySchema,
     region: String,
     is_hidden: Boolean,
     created_at: Date,
