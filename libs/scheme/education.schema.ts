@@ -6,6 +6,7 @@ export class Education extends Document {
   logo: string;
   names: string[];
   country: Country;
+  city: string;
   region: string;
   is_hideen: boolean;
   created_at: Date;
@@ -26,6 +27,7 @@ const educationSchema = new Schema(
     logo: String,
     names: [String],
     country: { type: Schema.Types.ObjectId, ref: 'Country' },
+    city: String,
     region: String,
     is_hidden: Boolean,
     created_at: Date,
