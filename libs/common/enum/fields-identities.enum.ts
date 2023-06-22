@@ -12,12 +12,17 @@ export enum IdentitiesReferenceEnum {
   EDUCATION_DATE_END_ARRAY = 'education[].date.end',
   EDUCATION_FIELD_OF_STUDY_ARRAY = 'education[].field_of_study',
   IS_EMPLOYMENT_PRIMARY_SELECTED_ARRAY = 'position_groups[].is_primary_selected',
+  POSITION_GROUPS_COMPANY = 'position_groups[].company',
   START_FIRST_SELLSIDE = 'start_first_sellside',
   START_FIRST_BUYSIDE = 'start_first_buyside',
   START_CURRENT_EMPLOYEER = 'start_current_employeer',
   LOCATION_CITY = 'location.city',
   LOCATION_COUNTRY = 'location.country',
   WEBSITE_LINK = 'website_link',
+  LANGUAGE = 'languages.profile_languages[].name',
+  SUGGESTED_STRATEGY = 'suggestedStrategy[].strategy',
+  SUGGESTED_SUBSTRATEGY = 'suggestedStrategy[].subStrategy[].strategy',
+  LOCALE_LANGUAGE = 'languages.primary_locale.language',
 }
 
 export enum JourneyTypesEnum {
