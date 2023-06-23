@@ -1,15 +1,30 @@
 import { HydratedDocument, Document, Schema } from 'mongoose';
+import { CompanySchema } from './company.schema';
 
 export class CompanySubType extends Document {
   _id: string;
   name: string;
 }
 
-export const CompanySubTypeSchema = new Schema({
-  _id: String,
-  name: { type: String, unique: true, index: true },
-});
+export const CompanySubTypeSchema = new Schema(
+  {
+    name: { type: String },
+  },
+  { _id: true },
+);
 export type CompanySubTypeDocument = HydratedDocument<CompanyType>;
+
+CompanySubTypeSchema.index(
+  { name: 1 },
+  {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    unique: true,
+    partialFilterExpression: {
+      names: { $type: 'string' },
+    },
+  },
+);
 
 const options = {
   timestamps: {
