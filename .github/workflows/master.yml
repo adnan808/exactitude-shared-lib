@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-          scope: '@dashdevs'
+          scope: '@adnan808'
       - name: '🚀 Install pnpm'
         run: npm add -g pnpm
       - name: '🚀 Install packages'

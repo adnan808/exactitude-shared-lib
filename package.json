@@ -1,5 +1,5 @@
 {
-  "name": "@dashdevs/exactitude-shared-lib",
+  "name": "@adnan808/exactitude-shared-lib",
   "version": "0.0.110",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",

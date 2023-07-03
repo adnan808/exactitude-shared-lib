@@ -30,20 +30,20 @@ done
 
 for dir in $SERVICES ; do
   echo $(printf "📚 Update shared module: ${COLOR_TEXT}$dir${COLOR_END}")
-  if [ ! -d $dir/node_modules/@dashdevs/exactitude-shared-lib ]; then
+  if [ ! -d $dir/node_modules/@adnan808/exactitude-shared-lib ]; then
     echo $(printf "\_ Skip service without module $(COLOR_ANY 31)$dir${COLOR_END}")
     continue;
   fi
-  rm -rf $dir/node_modules/@dashdevs/exactitude-shared-lib/dist/*
-  rm -rf $dir/node_modules/@dashdevs/exactitude-shared-lib/libs/*
-  rm -rf $dir/node_modules/@dashdevs/exactitude-shared-lib/*
+  rm -rf $dir/node_modules/@adnan808/exactitude-shared-lib/dist/*
+  rm -rf $dir/node_modules/@adnan808/exactitude-shared-lib/libs/*
+  rm -rf $dir/node_modules/@adnan808/exactitude-shared-lib/*
   echo $(printf "\_ $(COLOR_ANY 31)Package removed${COLOR_END}")
   sleep 0.5
   echo $(printf "\_ Copy libs to $(COLOR_ANY 31)$dir${COLOR_END}")
   if [ -d ./dist ]; then
-    cp -R ./dist $dir/node_modules/@dashdevs/exactitude-shared-lib/
+    cp -R ./dist $dir/node_modules/@adnan808/exactitude-shared-lib/
   fi
   sleep 0.5
-  cp -R ./libs $dir/node_modules/@dashdevs/exactitude-shared-lib/
-  cp -R ./package.json $dir/node_modules/@dashdevs/exactitude-shared-lib/package.json
+  cp -R ./libs $dir/node_modules/@adnan808/exactitude-shared-lib/
+  cp -R ./package.json $dir/node_modules/@adnan808/exactitude-shared-lib/package.json
 done

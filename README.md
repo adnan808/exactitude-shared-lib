@@ -6,13 +6,13 @@ Go to [link](https://github.com/settings/tokens) generate token for read/write:p
 
 ```bash
 cat > .npmrc <<Template
-@dashdevs:registry=https://npm.pkg.github.com
+@adnan808:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 Template
 ```
 
 ```
-pnpm install @dashdevs/exactitude-shared-lib@latest
+pnpm install @adnan808/exactitude-shared-lib@latest
 ```
 
 ### Local Develpment you can creat symlink on the package
@@ -21,7 +21,7 @@ pnpm install @dashdevs/exactitude-shared-lib@latest
 cd ./shared
 pnpm link
 cd ../api-website
-pnpm link @dashdevs/exactitude-shared-lib
+pnpm link @adnan808/exactitude-shared-lib
 ```
 
 ### Scripts
@@ -53,4 +53,3 @@ Use this lib [nest-typeorm](https://www.npmjs.com/package/@nestjs/typeorm) lib d
 You can specify non sensitive variables in .env file.
 
 Sensitive variables should be stored separately.
-
