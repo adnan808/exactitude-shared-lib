@@ -1,11 +1,11 @@
 {
   "name": "@adnan808/exactitude-shared-lib",
-  "version": "0.0.111",
+  "version": "0.0.112",
   "description": "Package for shared all code base between internal services",
   "main": "dist/index.js",
-  "repository": "https://github.com/dashdevs/exactitude-shared-lib.git",
+  "repository": "https://github.com/adnan808/exactitude-shared-lib.git",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/dashdevs"
+    "registry": "https://npm.pkg.github.com/adnan808"
   },
   "scripts": {
     "preversion": "git diff-index --quiet HEAD --",
