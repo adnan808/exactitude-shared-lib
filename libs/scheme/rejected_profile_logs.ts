@@ -7,6 +7,7 @@ export class RejectedProfileLogs extends Document {
   created_at: Date;
   updated_at: Date;
   upload_details: Upload;
+  reason: string;
 }
 
 const options = {
@@ -14,7 +15,7 @@ const options = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  collection: 'audit_logs',
+  collection: 'rejected_profiles_logs',
 };
 
 export const RejectedProfileLogsSchema = new Schema(
@@ -27,6 +28,7 @@ export const RejectedProfileLogsSchema = new Schema(
     profile: { type: Schema.Types.ObjectId, ref: 'Profile', index: true },
     created_at: { type: Date, index: true },
     updated_at: Date,
+    reason: { type: String },
   },
   options,
 );
