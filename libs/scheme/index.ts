@@ -19,3 +19,4 @@ export * from './tag.schema';
 export * from './scrapper-job.schema';
 export * from './end-user.schema';
 export * from './job-title.schema';
+export * from './rejected_profile_logs';
