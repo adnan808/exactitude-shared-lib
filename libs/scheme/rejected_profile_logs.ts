@@ -22,7 +22,7 @@ export const RejectedProfileLogsSchema = new Schema(
   {
     upload_details: {
       type: Schema.Types.ObjectId,
-      ref: 'uploads',
+      ref: 'Upload',
       index: true,
     },
     profile: { type: Schema.Types.ObjectId, ref: 'Profile', index: true },
