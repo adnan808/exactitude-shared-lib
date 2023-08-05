@@ -1,10 +1,10 @@
 import { HydratedDocument, Schema, Document } from 'mongoose';
 import { Upload } from './upload.schema';
 import { Gender } from './gender.schema';
-import { SuggestedCoverage } from './suggested-coverage.schema';
-import { SuggestedGeography } from './suggested-geography.schema';
-import { SuggestedTeam } from './suggested-team.schema';
-import { Substrategy, SuggestedStrategy } from './suggested-strategy.schema';
+// import { SuggestedCoverage } from './suggested-coverage.schema';
+// import { SuggestedGeography } from './suggested-geography.schema';
+// import { SuggestedTeam } from './suggested-team.schema';
+// import { Substrategy, SuggestedStrategy } from './suggested-strategy.schema';
 
 export class LocationSubDoc extends Document {
   country: string;
@@ -132,6 +132,7 @@ export class ProfileSubDoc extends Document {
 class Profile extends Document {
   upload: Upload;
   profile_id: string;
+  scrapped_profile_imageUrl: string;
   edit_suggestions: [];
   created_at: Date;
   updated_at: Date;
@@ -224,12 +225,12 @@ const EducationSubDocSchema = new Schema<EducationSubDoc>({
   is_hidden: { type: Boolean },
 });
 
-const CompanySubDocSchema = new Schema<CompanySubDoc>({
-  name: { type: String },
-  logo: { type: String },
-  url: { type: String },
-  employees: { type: DateSubDocSchema },
-});
+// const CompanySubDocSchema = new Schema<CompanySubDoc>({
+//   name: { type: String },
+//   logo: { type: String },
+//   url: { type: String },
+//   employees: { type: DateSubDocSchema },
+// });
 
 const ProfilePositionSubDocSchema = new Schema<ProfilePositionSubDoc>(
   {
@@ -300,6 +301,7 @@ const ProfileSchema = new Schema<Profile>({
     index: true,
   },
   profile_id: { type: String, required: true, unique: true },
+  scrapped_profile_imageUrl: { type: String },
   edit_suggestions: [],
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: null },
