@@ -91,6 +91,16 @@ export class SubstrategySubDoc extends Document {
   strategy: string;
 }
 
+// adding subcoverage change
+export class SuggestedCoverageSubDoc extends Document {
+  coverage: string;
+  subCoverage: SubCoverageSubDoc[];
+}
+
+export class SubCoverageSubDoc extends Document {
+  coverage: string;
+}
+// endind subcoverage change
 export class ProfileSubDoc extends Document {
   entity_urn: string;
   object_urn: string;
@@ -122,7 +132,7 @@ export class ProfileSubDoc extends Document {
   suggestedTeam: SuggestedTeamSubDoc[];
   suggestedStrategy: SuggestedStrategySubDoc[];
   suggested_geography: string;
-  suggested_coverage: string;
+  suggested_coverage: SuggestedCoverageSubDoc[];
   gender: Gender;
   start_first_sellside: string;
   start_current_employeer: string;
@@ -153,6 +163,15 @@ const SuggestedStrategySubDocSchema = new Schema<SuggestedStrategySubDoc>({
   strategy: { type: String },
   subStrategy: [SubstrategySubDocShema],
 });
+// adding subcoverage change
+const SubCoverageSubDocShema = new Schema<SubCoverageSubDoc>({
+  coverage: { type: String },
+});
+const SuggestedCoverageSubDocSchema = new Schema<SuggestedCoverageSubDoc>({
+  coverage: { type: String },
+  subCoverage: [SubCoverageSubDocShema],
+});
+// end subcoverage change
 
 const LocationSubDocSchema = new Schema<LocationSubDoc>(
   {
@@ -284,7 +303,8 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>(
     suggestedTeam: [SuggestedTeamSubDocSchema],
     suggestedStrategy: [SuggestedStrategySubDocSchema],
     suggested_geography: { type: String },
-    suggested_coverage: { type: String },
+    // adding subcoverage change
+    suggested_coverage: [SuggestedCoverageSubDocSchema],
     gender: { type: String },
     start_first_sellside: { type: String },
     start_current_employeer: { type: String },
