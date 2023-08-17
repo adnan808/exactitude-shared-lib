@@ -132,7 +132,9 @@ export class ProfileSubDoc extends Document {
   suggestedTeam: SuggestedTeamSubDoc[];
   suggestedStrategy: SuggestedStrategySubDoc[];
   suggested_geography: string;
-  suggested_coverage: SuggestedCoverageSubDoc[];
+  suggested_coverage: string;
+  // writing so that the previous data doesn't effect for suggestedCoverage
+  suggestedCoverage: SuggestedCoverageSubDoc;
   gender: Gender;
   start_first_sellside: string;
   start_current_employeer: string;
@@ -303,8 +305,10 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>(
     suggestedTeam: [SuggestedTeamSubDocSchema],
     suggestedStrategy: [SuggestedStrategySubDocSchema],
     suggested_geography: { type: String },
+
+    suggested_coverage: { type: String },
     // adding subcoverage change
-    suggested_coverage: [SuggestedCoverageSubDocSchema],
+    suggestedCoverage: SuggestedCoverageSubDocSchema,
     gender: { type: String },
     start_first_sellside: { type: String },
     start_current_employeer: { type: String },
