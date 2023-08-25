@@ -151,6 +151,7 @@ class Profile extends Document {
   scraped_at: Date;
   profile: ProfileSubDoc;
   is_archived: boolean;
+  is_MBA_profile: boolean;
 }
 
 const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
@@ -332,6 +333,7 @@ const ProfileSchema = new Schema<Profile>({
   scraped_at: Date,
   profile: ProfileSubDocSchema,
   is_archived: { type: Boolean, index: true },
+  is_MBA_profile: { type: Boolean, index: true },
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;
