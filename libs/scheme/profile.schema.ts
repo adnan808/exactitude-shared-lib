@@ -139,7 +139,97 @@ export class ProfileSubDoc extends Document {
   start_first_sellside: string;
   start_current_employeer: string;
   start_first_buyside: string;
+  // adding mba_data
+  mba_data: MbaData;
 }
+
+// Change for MBA
+interface MbaData {
+  internship: Internship;
+  mbaFrom: MbaFrom;
+}
+interface Company {
+  name: string;
+  _id?: string;
+}
+
+interface Internship {
+  title: string;
+  startDate: Date;
+  endDate: Date;
+  company: Company;
+}
+
+interface University {
+  name: string;
+  _id?: string;
+}
+
+interface Degree {
+  degree_name: string;
+  _id?: string;
+}
+
+interface MbaFrom {
+  degree: Degree;
+  startDate: Date;
+  endDate: Date;
+  university: University;
+}
+
+const CompanySchema = new Schema<Company>(
+  {
+    name: String,
+    _id: String,
+  },
+  { _id: false },
+);
+
+const InternshipSchema = new Schema<Internship>(
+  {
+    title: String,
+    startDate: Date,
+    endDate: Date,
+    company: CompanySchema,
+  },
+  { _id: false },
+);
+
+const UniversitySchema = new Schema<University>(
+  {
+    name: String,
+    _id: String,
+  },
+  { _id: false },
+);
+
+const DegreeSchema = new Schema<Degree>(
+  {
+    degree_name: String,
+    _id: String,
+  },
+  { _id: false },
+);
+
+const MbaFromSchema = new Schema<MbaFrom>(
+  {
+    degree: DegreeSchema,
+    startDate: Date,
+    endDate: Date,
+    university: UniversitySchema,
+  },
+  { _id: false },
+);
+
+const MbaDataSubDocSchema = new Schema<MbaData>(
+  {
+    internship: InternshipSchema,
+    mbaFrom: MbaFromSchema,
+  },
+  { _id: false },
+);
+
+// end of mba data
 
 class Profile extends Document {
   upload: Upload;
@@ -310,6 +400,8 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>(
     suggested_coverage: { type: String },
     // adding subcoverage change
     suggestedCoverage: SuggestedCoverageSubDocSchema,
+    // adding MBA data
+    mba_data: MbaDataSubDocSchema,
     gender: { type: String },
     start_first_sellside: { type: String },
     start_current_employeer: { type: String },
