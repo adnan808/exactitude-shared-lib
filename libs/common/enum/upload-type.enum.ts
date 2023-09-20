@@ -1,4 +1,6 @@
 export enum UploadTypeEnum {
   BUYSIDE,
   SELLSIDE,
+  LIVEMBAPROFILES,
+  UNDERGRADUATEPROFILES,
 }

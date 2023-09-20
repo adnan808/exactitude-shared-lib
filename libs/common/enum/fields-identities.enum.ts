@@ -31,6 +31,18 @@ export enum IdentitiesReferenceEnum {
   SUGGESTED_TEAM_TEAM_ARRAY = 'suggestedTeam[].team',
   LANGUAGES_PRIMARY_LANGUAGE = 'languages.primary_locale.language',
   LANGUAGES_PROFILE_LANGUAGES_NAME_ARRAY = 'languages.profile_languages[].name',
+  MBA_TYPE = 'mbaType',
+  IS_SELL_SIDE = 'isSellSide',
+  IS_BUY_SIDE = 'isBuySide',
+  DATE_OF_GRADUATION = 'dateOfGraduation',
+  MBA_INSTITUTE_NAME = 'mbaDetails.instituteName',
+  MBA_START_DATE = 'mbaDetails.startDate',
+  MBA_END_DATE = 'mbaDetails.endDate',
+  MBA_ASSOCIATE_STARTED_WORKING = 'mbaAssociateStartedWorking',
+  UNDERGRADUATE_INSTITUTE_NAME = 'undergraduateDetails.instituteName',
+  UNDERGRADUATE_START_DATE = 'undergraduateDetails.startDate',
+  UNDERGRADUATE_END_DATE = 'undergraduateDetails.endDate',
+  UNDERGRADUATE_DEGREE = 'undergraduateDetails.degree',
 }
 
 export enum JourneyTypesEnum {
@@ -55,4 +67,7 @@ export enum DictionariesEnum {
   city = 'location.city',
   degree = 'education[].degree',
   company = 'position_groups[].company',
+  mbaInstituteName = 'mbaDetails.instituteName',
+  undergraduateInstituteName = 'undergraduateDetails.instituteName',
+  undergraduateDegree = 'undergraduateDetails.degree',
 }

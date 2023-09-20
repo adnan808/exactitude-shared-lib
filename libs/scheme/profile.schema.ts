@@ -242,6 +242,7 @@ class Profile extends Document {
   profile: ProfileSubDoc;
   is_archived: boolean;
   is_MBA_profile: boolean;
+  is_intern: boolean;
 }
 
 const SuggestedTeamSubDocSchema = new Schema<SuggestedTeamSubDoc>({
@@ -426,6 +427,7 @@ const ProfileSchema = new Schema<Profile>({
   profile: ProfileSubDocSchema,
   is_archived: { type: Boolean, index: true },
   is_MBA_profile: { type: Boolean, index: true },
+  is_intern: { type: Boolean, index: true },
 });
 
 export type ProfileDocument = HydratedDocument<Profile>;
