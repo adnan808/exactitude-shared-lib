@@ -141,8 +141,30 @@ export class ProfileSubDoc extends Document {
   start_first_buyside: string;
   // adding mba_data
   mba_data: MbaData;
+  // new functionality
+  mbaDetails: MBADetails;
+  undergraduateDetails: UnderGraduateDetails;
+  is_intern: boolean;
+  is_MBA_profile: boolean;
+  is_past_MBA_profile: boolean;
+  mbaAssociateStartedWorking: Date;
+  mbaType: string;
+  dateOfGraduation: Date;
+  isBuySide: boolean;
+  isSellSide: boolean;
 }
 
+interface MBADetails {
+  instituteName: string;
+  startDate: Date;
+  endDate: Date;
+}
+interface UnderGraduateDetails {
+  instituteName: string;
+  startDate: Date;
+  endDate: Date;
+  degree: string;
+}
 // Change for MBA
 interface MbaData {
   internship: Internship;
@@ -217,6 +239,25 @@ const MbaFromSchema = new Schema<MbaFrom>(
     startDate: Date,
     endDate: Date,
     university: UniversitySchema,
+  },
+  { _id: false },
+);
+
+const MBADetailsSchema = new Schema<MBADetails>(
+  {
+    startDate: Date,
+    endDate: Date,
+    instituteName: String,
+  },
+  { _id: false },
+);
+
+const UnderGraduateDetailsSchema = new Schema<UnderGraduateDetails>(
+  {
+    startDate: Date,
+    endDate: Date,
+    instituteName: String,
+    degree: String,
   },
   { _id: false },
 );
@@ -402,11 +443,22 @@ const ProfileSubDocSchema = new Schema<ProfileSubDoc>(
     // adding subcoverage change
     suggestedCoverage: SuggestedCoverageSubDocSchema,
     // adding MBA data
-    mba_data: MbaDataSubDocSchema,
+
     gender: { type: String },
     start_first_sellside: { type: String },
     start_current_employeer: { type: String },
     start_first_buyside: { type: String },
+    mba_data: MbaDataSubDocSchema,
+    mbaDetails: MBADetailsSchema,
+    undergraduateDetails: UnderGraduateDetailsSchema,
+    is_intern: { type: Boolean, index: true },
+    is_MBA_profile: { type: Boolean, index: true },
+    is_past_MBA_profile: { type: Boolean, index: true },
+    mbaAssociateStartedWorking: { type: Date },
+    mbaType: { type: String, index: true },
+    dateOfGraduation: { type: Date },
+    isBuySide: { type: Boolean, index: true },
+    isSellSide: { type: Boolean, index: true },
   },
   { _id: false },
 );
